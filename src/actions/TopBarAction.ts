@@ -9,13 +9,31 @@ export default class TopBarAction {
     this.originComponentId = componentId;
   }
 
-  withTitle(title: string) {
-    set(this.options, 'title.text', title);
+  withTitle(title: string, options?: OptionsTopBar['title']) {
+    if (!this.options.title) {
+      this.options.title = {};
+    }
+    this.options.title.text = title;
+    this.options.title = {...this.options.title, ...options};
     return this;
   }
 
-  withSubtitle(subtitle: string) {
-    set(this.options, 'subtitle.text', subtitle);
+  withSubtitle(title: string, options?: OptionsTopBar['subtitle']) {
+    if (!this.options.subtitle) {
+      this.options.subtitle = {};
+    }
+    this.options.subtitle.text = title;
+    this.options.subtitle = {...this.options.subtitle, ...options};
+    return this;
+  }
+
+  withVisibility(value: boolean) {
+    this.options.visible = value;
+    return this;
+  }
+
+  withAnimation(value: boolean) {
+    this.options.animate = value;
     return this;
   }
 
