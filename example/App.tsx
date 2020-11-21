@@ -4,17 +4,19 @@ import Text from 'react-native-ui-lib/text';
 import TouchableOpacity from 'react-native-ui-lib/touchableOpacity';
 import {Colors} from 'react-native-ui-lib/style';
 import {StyleSheet} from 'react-native';
+import {push} from 'rnn-simple';
 
 class App extends Component {
   state = {};
 
-  renderItem(title: string) {
+  renderItem(title: string, screenName: string) {
     return (
       <TouchableOpacity
         marginL-s5
         paddingR-s5
         paddingV-s4
-        style={styles.listItem}>
+        style={styles.listItem}
+        onPress={() => push(screenName).go()}>
         <Text text70R>{title}</Text>
       </TouchableOpacity>
     );
@@ -27,7 +29,7 @@ class App extends Component {
           RNNSimple
         </Text>
         {this.renderItem('TopBar Actions', 'rnnsimple.TopBarActionsScreen')}
-        {this.renderItem('Push Actions')}
+        {this.renderItem('Push Actions', 'rnnsimple.PushActionsScreen')}
       </View>
     );
   }

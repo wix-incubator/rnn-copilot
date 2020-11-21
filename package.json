@@ -12,6 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "lodash": "^4.17.20",
     "react": "16.13.1",
     "react-native": "0.63.3"
   },
@@ -28,7 +29,7 @@
     "@types/react": "^16.14.0",
     "@types/react-native": "^0.63.36",
     "babel-jest": "^25.1.0",
-    "eslint": "^6.5.1",
+    "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-native-gesture-handler": "^1.8.0",
