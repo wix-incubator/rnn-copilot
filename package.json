@@ -18,7 +18,11 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
+    "@react-native-community/blur": "^3.6.0",
+    "@react-native-community/datetimepicker": "^3.0.6",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@react-native-community/netinfo": "^5.9.7",
+    "@react-native-community/picker": "^1.8.1",
     "@types/jest": "^26.0.15",
     "@types/lodash": "^4.14.165",
     "@types/react": "^16.14.0",
