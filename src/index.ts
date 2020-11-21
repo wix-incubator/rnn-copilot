@@ -3,7 +3,6 @@ import {PushAction, TopBarAction} from './actions';
 
 export function push(screenName: string) {
   const currentComponentId = getVisibleComponentId();
-
   return new PushAction(currentComponentId, screenName);
 }
 
