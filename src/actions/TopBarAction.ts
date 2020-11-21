@@ -37,6 +37,15 @@ export default class TopBarAction {
     return this;
   }
 
+  withTransparency() {
+    if (!this.options.background) {
+      this.options.background = {};
+    }
+    this.options.background.translucent = true;
+    this.options.background.color = 'transparent';
+    this.options.drawBehind = true;
+  }
+
   go() {
     Navigation.mergeOptions(this.originComponentId, {
       topBar: this.options,

@@ -17,6 +17,7 @@ interface State {
   textColor?: string;
   hideTopBar?: boolean;
   animate?: boolean;
+  transparent?: boolean;
 }
 
 class TopBarActionsScreen extends Component<undefined, State> {
@@ -26,20 +27,29 @@ class TopBarActionsScreen extends Component<undefined, State> {
     textColor: Colors.grey10,
     hideTopBar: false,
     animate: false,
+    transparent: false,
   };
 
   updateTopBar = () => {
-    const {title, subtitle, textColor, hideTopBar, animate} = this.state;
-    updateTopBar()
+    const {
+      title,
+      subtitle,
+      textColor,
+      hideTopBar,
+      animate,
+      transparent,
+    } = this.state;
+    const action = updateTopBar()
       .withTitle(title, {color: textColor})
       .withSubtitle(subtitle, {color: textColor})
       .withVisibility(!hideTopBar)
-      .withAnimation(animate)
-      .go();
+      .withAnimation(animate);
+    transparent && action.withTransparency();
+    action.go();
   };
 
   render() {
-    const {textColor, hideTopBar, animate} = this.state;
+    const {textColor, hideTopBar, animate, transparent} = this.state;
     return (
       <View padding-s5 flex>
         <Text text40 marginB-s3>
@@ -87,6 +97,12 @@ class TopBarActionsScreen extends Component<undefined, State> {
               onValueChange={(value) => this.setState({animate: value})}
             />
           </View>
+          <Checkbox
+            containerStyle={{marginTop: Spacings.s3}}
+            label="Set Transparency"
+            value={transparent}
+            onValueChange={(value) => this.setState({transparent: value})}
+          />
         </View>
 
         <View center useSafeArea>
