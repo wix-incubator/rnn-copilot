@@ -1,7 +1,9 @@
 {
-  "name": "rnnsimple",
+  "name": "rnn-simple",
   "version": "0.0.1",
   "private": true,
+  "main": "src/index.ts",
+  "types": "index.d.ts",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -17,6 +19,9 @@
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.165",
+    "@types/react": "^16.14.0",
     "@types/react-native": "^0.63.36",
     "babel-jest": "^25.1.0",
     "eslint": "^6.5.1",
