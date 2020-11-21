@@ -8,7 +8,6 @@ import {getVisibleComponentId} from '../AppStack';
 export default class TopBar {
   originComponentId?: string;
   options: OptionsTopBar = {};
-  rightButtons?: OptionsTopBarButton[];
 
   constructor(componentId?: string) {
     this.originComponentId = componentId;
@@ -52,11 +51,13 @@ export default class TopBar {
   }
 
   withRightButton(button: OptionsTopBarButton) {
-    this.rightButtons = [button];
+    this.options.rightButtons = [button];
+    return this;
   }
 
   withRightButtons(buttons: OptionsTopBarButton[]) {
-    this.rightButtons = buttons;
+    this.options.rightButtons = buttons;
+    return this;
   }
 
   update() {
