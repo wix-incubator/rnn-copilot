@@ -9,7 +9,7 @@ import {
   ColorPalette,
   Colors,
 } from 'react-native-ui-lib';
-import {updateTopBar} from 'rnn-simple';
+import {TopBar} from 'rnn-simple';
 
 interface State {
   title?: string;
@@ -30,6 +30,8 @@ class TopBarActionsScreen extends Component<undefined, State> {
     transparent: false,
   };
 
+  topBar = new TopBar();
+
   updateTopBar = () => {
     const {
       title,
@@ -39,13 +41,13 @@ class TopBarActionsScreen extends Component<undefined, State> {
       animate,
       transparent,
     } = this.state;
-    const action = updateTopBar()
+    this.topBar
       .withTitle(title, {color: textColor})
       .withSubtitle(subtitle, {color: textColor})
       .withVisibility(!hideTopBar)
       .withAnimation(animate);
-    transparent && action.withTransparency();
-    action.go();
+    transparent && this.topBar.withTransparency();
+    this.topBar.update();
   };
 
   render() {

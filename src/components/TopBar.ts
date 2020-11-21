@@ -1,11 +1,16 @@
-import {Navigation, OptionsTopBar} from 'react-native-navigation';
-import {set} from 'lodash';
+import {
+  Navigation,
+  OptionsTopBar,
+  OptionsTopBarButton,
+} from 'react-native-navigation';
+import {getVisibleComponentId} from '../AppStack';
 
-export default class TopBarAction {
-  originComponentId: string;
+export default class TopBar {
+  originComponentId?: string;
   options: OptionsTopBar = {};
+  rightButtons?: OptionsTopBarButton[];
 
-  constructor(componentId: string) {
+  constructor(componentId?: string) {
     this.originComponentId = componentId;
   }
 
@@ -46,8 +51,16 @@ export default class TopBarAction {
     this.options.drawBehind = true;
   }
 
-  go() {
-    Navigation.mergeOptions(this.originComponentId, {
+  withRightButton(button: OptionsTopBarButton) {
+    this.rightButtons = [button];
+  }
+
+  withRightButtons(buttons: OptionsTopBarButton[]) {
+    this.rightButtons = buttons;
+  }
+
+  update() {
+    Navigation.mergeOptions(this.originComponentId || getVisibleComponentId(), {
       topBar: this.options,
     });
   }
