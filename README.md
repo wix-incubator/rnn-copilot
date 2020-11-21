@@ -23,4 +23,7 @@ Updates subtitle text with support for passing customizable options
 Updates top bar visibility
 
 **withAnimation(animate: boolean)**  
-Should next updade be animated
+Should next update be animated
+
+**withTransparency()**  
+Set a transparent top bar where content is drawn behind
