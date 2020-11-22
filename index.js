@@ -3,9 +3,7 @@ import {Root, BottomTab} from 'rnn-simple';
 import {Assets, Colors} from 'react-native-ui-lib';
 import App from './example/App';
 import {name as appName} from './app.json';
-import './example/configurations';
-import './example/screens';
-import './example/assets';
+import './example';
 
 // Registering the same screen for two tabs
 Navigation.registerComponent(`${appName}_1`, () => App);

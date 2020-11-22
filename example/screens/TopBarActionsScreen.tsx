@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {OptionsTopBarButton} from 'react-native-navigation';
 import {View, Text, Button, TextField, Checkbox, Spacings, ColorPalette, Colors, ExpandableSection} from 'react-native-ui-lib';
 import {TopBar} from 'rnn-simple';
 
-type RightPartType = 'none' | 'single' | 'multiple' | 'loader';
 interface State {
   title?: string;
   subtitle?: string;
@@ -14,18 +12,8 @@ interface State {
   withRightButton?: boolean;
   disabledRightButton?: boolean;
   rightButtonLabel?: string;
-  rightPart: RightPartType;
+  withLoader?: boolean;
 }
-
-const BUTTON1: OptionsTopBarButton = {
-  id: 'one',
-  text: 'Button 1',
-};
-
-const BUTTON2: OptionsTopBarButton = {
-  id: 'two',
-  text: 'Button 2',
-};
 
 class TopBarActionsScreen extends Component<undefined, State> {
   state = {
@@ -38,6 +26,7 @@ class TopBarActionsScreen extends Component<undefined, State> {
     withRightButton: false,
     rightButtonLabel: 'Button',
     disabledRightButton: false,
+    withLoader: false,
   };
 
   topBar = new TopBar();
@@ -53,22 +42,23 @@ class TopBarActionsScreen extends Component<undefined, State> {
       withRightButton,
       rightButtonLabel,
       disabledRightButton,
+      withLoader,
     } = this.state;
     this.topBar
       .withTitle(title, {color: textColor})
       .withSubtitle(subtitle, {color: textColor})
       .withVisibility(!hideTopBar)
-      .withAnimation(animate);
+      .withAnimation(animate)
+      .withRightButtons([]);
     transparent && this.topBar.withTransparency();
-    withRightButton
-      ? this.topBar.withRightButtons([{id: 'button', text: rightButtonLabel, enabled: !disabledRightButton}])
-      : this.topBar.withRightButtons([]);
+    withRightButton && this.topBar.withRightButtons([{id: 'button', text: rightButtonLabel, enabled: !disabledRightButton}]);
+    withLoader && this.topBar.withLoader('rnnsimple.Loader');
 
     this.topBar.update();
   };
 
   render() {
-    const {textColor, hideTopBar, animate, transparent, disabledRightButton, withRightButton, rightButtonLabel} = this.state;
+    const {textColor, hideTopBar, animate, transparent, disabledRightButton, withRightButton, rightButtonLabel, withLoader} = this.state;
     return (
       <View padding-s5 flex>
         <Text text40 marginB-s3>
@@ -121,6 +111,7 @@ class TopBarActionsScreen extends Component<undefined, State> {
               />
             </View>
           </ExpandableSection>
+          <Checkbox value={withLoader} label="With Loader" onValueChange={(value) => this.setState({withLoader: value})} />
         </View>
 
         <View center useSafeArea>
