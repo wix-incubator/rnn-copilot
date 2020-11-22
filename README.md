@@ -42,9 +42,12 @@ import {BottomTab} from 'rnn-simple';
 
 new BottomTab(tabId, screenId).withLabel(tabLabel)
 ```
-
 **withLabel(label: string)**  
 Set tab label
+
+**get()**  
+Retrieve (RNN) layout object 
+
 
 ### Root
 ```
