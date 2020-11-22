@@ -4,12 +4,10 @@ import {Navigation} from 'react-native-navigation';
 // const appStack: string[] = [];
 let currentVisibleComponentId: string;
 
-Navigation.events().registerComponentDidAppearListener(
-  ({componentId /* , componentName, passProps, ...others */}) => {
-    currentVisibleComponentId = componentId;
-    // appStack.push(componentId);
-  },
-);
+Navigation.events().registerComponentDidAppearListener(({componentId /* , componentName, passProps, ...others */}) => {
+  currentVisibleComponentId = componentId;
+  // appStack.push(componentId);
+});
 
 export function getVisibleComponentId() {
   return currentVisibleComponentId;
