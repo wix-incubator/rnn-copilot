@@ -18,7 +18,7 @@
     "skipLibCheck": true,
     "declaration": true
   },
-  "include": ["src/**/*", "example/**/*"],
+  "include": ["src/**/*", "example/**/*", "index.js"],
   "exclude": [
     "node_modules",
     "babel.config.js",
