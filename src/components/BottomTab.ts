@@ -1,4 +1,4 @@
-import {Layout, Navigation} from 'react-native-navigation';
+import {Layout} from 'react-native-navigation';
 
 export default class BottomTab {
   label?: string;

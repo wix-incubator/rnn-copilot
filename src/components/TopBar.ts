@@ -1,8 +1,4 @@
-import {
-  Navigation,
-  OptionsTopBar,
-  OptionsTopBarButton,
-} from 'react-native-navigation';
+import {Navigation, OptionsTopBar, OptionsTopBarButton} from 'react-native-navigation';
 import {getVisibleComponentId} from '../AppStack';
 
 export default class TopBar {
@@ -51,7 +47,11 @@ export default class TopBar {
   }
 
   withRightButton(button: OptionsTopBarButton) {
-    this.options.rightButtons = [button];
+    if (!this.options.rightButtons) {
+      this.options.rightButtons = [];
+    }
+    this.options.rightButtons.push(button);
+
     return this;
   }
 
