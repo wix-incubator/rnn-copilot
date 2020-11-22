@@ -1,5 +1,6 @@
 import {Navigation, OptionsTopBar, OptionsTopBarButton} from 'react-native-navigation';
 import {getVisibleComponentId} from '../AppStack';
+import {assign} from 'lodash';
 
 export default class TopBar {
   originComponentId?: string;
@@ -58,6 +59,15 @@ export default class TopBar {
   withRightButtons(buttons: OptionsTopBarButton[]) {
     this.options.rightButtons = buttons;
     return this;
+  }
+
+  setRightButton(buttonIndex: number, options: OptionsTopBarButton) {
+    let rightButton = this.options.rightButtons?.[buttonIndex];
+    if (!rightButton) {
+      throw `There is no right button at index ${buttonIndex}`;
+    }
+
+    assign(rightButton, options);
   }
 
   update() {
