@@ -2,16 +2,18 @@
 An abstraction on top react-native-navigation with simplified API
 
 ## API
-### TopBar Actions
-
+### TopBar
 ```
-import {updateTopBar} from 'rnn-simple';
+import {TopBar} from 'rnn-simple';
 
-updateTopBar()
+new TopBar().
   .withTitle('title', {color: 'red'})
   .withSubtitle(subtitle, {color: 'red'})
-  .go();
+  .update();
 ```
+
+**update()**  
+Executes RNN mergeOption API
 
 **withTitle(title: string, options)**  
 Updates title text with support for passing customizable options
@@ -27,3 +29,36 @@ Should next update be animated
 
 **withTransparency()**  
 Set a transparent top bar where content is drawn behind
+
+**withRightButton(button: OptionsTopBarButton)**  
+Add a single right button (pushes to existing buttons)
+
+**withRightButtons(buttons: OptionsTopBarButton[])**  
+Add a multiple right button
+
+### BottomTab
+```
+import {BottomTab} from 'rnn-simple';
+
+new BottomTab(tabId, screenId).withLabel(tabLabel)
+```
+
+**withLabel(label: string)**  
+Set tab label
+
+### Root
+```
+import {Root} from 'rnn-simple';
+
+const root = new Root();
+root.withBottomTab().withBottomTab().set();
+```
+
+**withBottomTab(bottomTab: BottomTab)**  
+Add a single bottom tab
+
+## Roadmap
+- Support showing loader as right button
+- Support manipulating specific top bar button (e.g. change disability)
+- Support setting defaults styles for all components
+
