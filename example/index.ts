@@ -14,9 +14,6 @@ Navigation.registerComponent(appName, () => AppScreen);
 Navigation.registerComponent(`${appName}_1`, () => AppScreen);
 Navigation.registerComponent(`${appName}_2`, () => AppScreen);
 
-const mainTab = new BottomTab('main', appName);
-mainTab.withLabel('Main');
-
 const app = new App()
   .withTopBar({noBorder: true, backButton: {icon: Assets.icons.back, color: Colors.grey10}})
   .withLayout({componentBackgroundColor: Colors.grey80});
