@@ -23,8 +23,8 @@ class App extends Component {
         <Text marginL-s5 text40>
           RNNSimple
         </Text>
-        {this.renderItem('TopBar Actions', 'rnnsimple.TopBarActionsScreen')}
-        {this.renderItem('Push Actions', 'rnnsimple.PushActionsScreen')}
+        {this.renderItem('TopBar', 'rnnsimple.TopBarActionsScreen')}
+        {this.renderItem('Push', 'rnnsimple.PushActionsScreen')}
         {this.renderItem('Roots', 'rnnsimple.RootsScreen')}
       </View>
     );
