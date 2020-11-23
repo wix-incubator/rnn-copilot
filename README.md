@@ -70,6 +70,9 @@ Add a single right button (pushes to existing buttons)
 **withRightButtons(buttons: OptionsTopBarButton[])**  
 Add a multiple right button
 
+**setRightButton(buttonIndex: number, options: OptionsTopBarButton)**
+Update a specific right button
+
 ### BottomTab
 ```
 import {BottomTab} from 'rnn-simple';
@@ -84,8 +87,12 @@ Retrieve (RNN) layout object
 
 
 ## Roadmap
+- Come up with a better name than rnn-simple
+- Publish this library as an NPM package
 - Support showing loader as right button
 - Support manipulating specific top bar button (e.g. change disability)
-- Support setting defaults styles for all components
 - Separate docs pages into each component folder
 - Support easier ways to set app default styles for common behaviors
+
+## Know Issues
+- dismissing a pageSheet modal on iOS doesn't trigger didAppear event which breaks our push functionality. 
