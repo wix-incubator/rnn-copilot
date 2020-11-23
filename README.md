@@ -96,3 +96,4 @@ Retrieve (RNN) layout object
 
 ## Know Issues
 - dismissing a pageSheet modal on iOS doesn't trigger didAppear event which breaks our push functionality. 
+- After setting a custom right button (loader) - mergeOptions stops working completely
