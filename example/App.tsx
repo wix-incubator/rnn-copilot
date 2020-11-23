@@ -11,12 +11,7 @@ class App extends Component {
 
   renderItem(title: string, screenName: string) {
     return (
-      <TouchableOpacity
-        marginL-s5
-        paddingR-s5
-        paddingV-s4
-        style={styles.listItem}
-        onPress={() => push(screenName).go()}>
+      <TouchableOpacity marginL-s5 paddingR-s5 paddingV-s4 style={styles.listItem} onPress={() => push(screenName).go()}>
         <Text text70R>{title}</Text>
       </TouchableOpacity>
     );
