@@ -43,6 +43,14 @@ class Root {
       root: layout,
     });
   }
+
+  changeTab(tabId: string) {
+    Navigation.mergeOptions(this.bottomTabsId, {
+      bottomTabs: {
+        currentTabId: tabId,
+      },
+    });
+  }
 }
 
 export default new Root();
