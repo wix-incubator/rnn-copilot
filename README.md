@@ -16,13 +16,13 @@ const app = new App()
   .withTopBar({noBorder: true, backButton: {icon: backIcon, color: 'black'}})
   .withLayout({componentBackgroundColor: 'grey'});
 ```
-- withStatusBar(statusBarOptions: OptionsStatusBar)
-- withLayout(layoutOptions: OptionsLayout)
-- withTopBar(topBarOptions: OptionsTopBar)
-- withBottomTabs(bottomTabsOptions: OptionsBottomTabs)
-- withBottomTab(bottomTabOptions: OptionsBottomTab)
-- withModalPresentationStyle(presentation: OptionsModalPresentationStyle)
-- set()
+#### `withStatusBar(statusBarOptions: OptionsStatusBar)`
+#### `withLayout(layoutOptions: OptionsLayout)`
+#### `withTopBar(topBarOptions: OptionsTopBar)`
+#### `withBottomTabs(bottomTabsOptions: OptionsBottomTabs)`
+#### `withBottomTab(bottomTabOptions: OptionsBottomTab)`
+#### `withModalPresentationStyle(presentation: OptionsModalPresentationStyle)`
+#### `set()`
 
 ### Root
 ```
@@ -32,7 +32,7 @@ const root = new Root();
 root.withBottomTab().withBottomTab().set();
 ```
 
-**withBottomTab(bottomTab: BottomTab)**  
+`withBottomTab(bottomTab: BottomTab)`  
 Add a single bottom tab
 
 
@@ -46,31 +46,31 @@ new TopBar().
   .update();
 ```
 
-**update()**  
+#### `update()`  
 Executes RNN mergeOption API
 
-**withTitle(title: string, options)**  
+#### `withTitle(title: string, options)`  
 Updates title text with support for passing customizable options
 
-**withSubtitle(subtitle: string, options)**  
+#### `withSubtitle(subtitle: string, options)`  
 Updates subtitle text with support for passing customizable options
 
-**withVisibility(visible: boolean)**  
+#### `withVisibility(visible: boolean)`  
 Updates top bar visibility
 
-**withAnimation(animate: boolean)**  
+#### `withAnimation(animate: boolean)`  
 Should next update be animated
 
-**withTransparency()**  
+#### `withTransparency()`  
 Set a transparent top bar where content is drawn behind
 
-**withRightButton(button: OptionsTopBarButton)**  
+#### `withRightButton(button: OptionsTopBarButton)`  
 Add a single right button (pushes to existing buttons)
 
-**withRightButtons(buttons: OptionsTopBarButton[])**  
+#### `withRightButtons(buttons: OptionsTopBarButton[])`  
 Add a multiple right button
 
-**setRightButton(buttonIndex: number, options: OptionsTopBarButton)**
+#### `setRightButton(buttonIndex: number, options: OptionsTopBarButton)`  
 Update a specific right button
 
 ### BottomTab
@@ -79,10 +79,10 @@ import {BottomTab} from 'rnn-simple';
 
 new BottomTab(tabId, screenId).withLabel(tabLabel)
 ```
-**withLabel(label: string)**  
+#### `withLabel(label: string)`  
 Set tab label
 
-**get()**  
+#### `get()`  
 Retrieve (RNN) layout object 
 
 
