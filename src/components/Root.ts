@@ -1,29 +1,48 @@
+import {isEmpty, map} from 'lodash';
 import {Navigation, Layout} from 'react-native-navigation';
 import BottomTab from './BottomTab';
 
-export default class Root {
-  layout: Layout = {};
-  mainScreen?: string;
+class Root {
+  private mainScreen?: string;
+  private bottomTabsId: string = 'bottom-tabs';
+  private bottomTabs: BottomTab[] = [];
 
-  constructor(mainScreen?: string) {
-    if (mainScreen) {
-      this.mainScreen = mainScreen;
-      this.layout.stack = {children: [{component: {name: mainScreen}}]};
-    }
-  }
-
-  withBottomTab(bottomTab: BottomTab) {
-    if (!this.layout.bottomTabs) {
-      this.layout.bottomTabs = {id: 'bottom_tabs', children: []};
-    }
-    this.layout.bottomTabs.children?.push(bottomTab.get());
-
+  /** Set a single stack root with a main screen */
+  withSingleStack(mainScreen: string) {
+    this.mainScreen = mainScreen;
     return this;
   }
 
+  /** Add a bottom tab to Tabbed based root */
+  withBottomTab(bottomTab: BottomTab) {
+    this.bottomTabs.push(bottomTab);
+    return this;
+  }
+
+  /** Clear root configurations */
+  clear() {
+    this.mainScreen = undefined;
+    this.bottomTabs = [];
+    return this;
+  }
+
+  /** Set root according to configurations */
   set() {
+    const layout: Layout = {};
+    if (this.mainScreen) {
+      layout.stack = {children: [{component: {name: this.mainScreen}}]};
+    } else if (!isEmpty(this.bottomTabs)) {
+      layout.bottomTabs = {
+        id: this.bottomTabsId,
+        children: map(this.bottomTabs, (tab) => tab.get()),
+      };
+    } else {
+      throw "Cannot set app root without proper configuration. Use either 'withSingleStack' or 'withBottomTab'";
+    }
     Navigation.setRoot({
-      root: this.layout,
+      root: layout,
     });
   }
 }
+
+export default new Root();
