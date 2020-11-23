@@ -64,4 +64,6 @@ Add a single bottom tab
 - Support showing loader as right button
 - Support manipulating specific top bar button (e.g. change disability)
 - Support setting defaults styles for all components
+- Separate docs pages into each component folder
+- Support easier ways to set app default styles for common behaviors
 
