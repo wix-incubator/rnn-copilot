@@ -21,7 +21,7 @@ export default class BottomTab {
   }
 
   withLabel(label: string) {
-    this.layout.stack.options.bottomTab.text = label;
+    this.layout.stack!.options!.bottomTab!.text = label;
     return this;
   }
 
@@ -58,8 +58,8 @@ export default class BottomTab {
   }
 
   withOptions(options: OptionsBottomTab) {
-    this.layout.stack.options.bottomTab = {
-      ...this.layout.stack.options.bottomTab,
+    this.layout.stack!.options!.bottomTab = {
+      ...this.layout.stack?.options?.bottomTab,
       ...options,
     };
     return this;
