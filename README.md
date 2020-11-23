@@ -2,6 +2,40 @@
 An abstraction on top react-native-navigation with simplified API
 
 ## API
+
+### Components
+- [App](#app)
+- [Root](#root)
+- [TopBar](#topbar)
+- [BottomTab](#bottomtab)
+
+
+### App
+```
+const app = new App()
+  .withTopBar({noBorder: true, backButton: {icon: backIcon, color: 'black'}})
+  .withLayout({componentBackgroundColor: 'grey'});
+```
+- withStatusBar(statusBarOptions: OptionsStatusBar)
+- withLayout(layoutOptions: OptionsLayout)
+- withTopBar(topBarOptions: OptionsTopBar)
+- withBottomTabs(bottomTabsOptions: OptionsBottomTabs)
+- withBottomTab(bottomTabOptions: OptionsBottomTab)
+- withModalPresentationStyle(presentation: OptionsModalPresentationStyle)
+- set()
+
+### Root
+```
+import {Root} from 'rnn-simple';
+
+const root = new Root();
+root.withBottomTab().withBottomTab().set();
+```
+
+**withBottomTab(bottomTab: BottomTab)**  
+Add a single bottom tab
+
+
 ### TopBar
 ```
 import {TopBar} from 'rnn-simple';
@@ -48,17 +82,6 @@ Set tab label
 **get()**  
 Retrieve (RNN) layout object 
 
-
-### Root
-```
-import {Root} from 'rnn-simple';
-
-const root = new Root();
-root.withBottomTab().withBottomTab().set();
-```
-
-**withBottomTab(bottomTab: BottomTab)**  
-Add a single bottom tab
 
 ## Roadmap
 - Support showing loader as right button
