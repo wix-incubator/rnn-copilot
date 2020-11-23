@@ -66,4 +66,3 @@ Add a single bottom tab
 - Support setting defaults styles for all components
 - Separate docs pages into each component folder
 - Support easier ways to set app default styles for common behaviors
-
