@@ -31,8 +31,8 @@ export default class BottomTab {
    * @param selectedColor
    */
   withIcon(icon: OptionsBottomTab['icon'], selectedColor?: string): BottomTab {
-    this.layout.stack.options.bottomTab.icon = icon;
-    this.layout.stack.options.bottomTab.selectedIconColor = selectedColor;
+    this.layout.stack!.options!.bottomTab!.icon = icon;
+    this.layout.stack!.options!.bottomTab!.selectedIconColor = selectedColor;
     return this;
   }
 
@@ -42,8 +42,8 @@ export default class BottomTab {
    * @param selectedIcon selected icon
    */
   withIcons(icon: OptionsBottomTab['icon'], selectedIcon: OptionsBottomTab['icon']): BottomTab {
-    this.layout.stack.options.bottomTab.icon = icon;
-    this.layout.stack.options.bottomTab.selectedIcon = selectedIcon;
+    this.layout.stack!.options!.bottomTab!.icon = icon;
+    this.layout.stack!.options!.bottomTab!.selectedIcon = selectedIcon;
     return this;
   }
 
@@ -52,8 +52,8 @@ export default class BottomTab {
    * @param color
    */
   withSelectedColor(color: string) {
-    this.layout.stack.options.bottomTab.selectedIconColor = color;
-    this.layout.stack.options.bottomTab.selectedTextColor = color;
+    this.layout.stack!.options!.bottomTab!.selectedIconColor = color;
+    this.layout.stack!.options!.bottomTab!.selectedTextColor = color;
     return this;
   }
 
