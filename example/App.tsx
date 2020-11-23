@@ -25,6 +25,7 @@ class App extends Component {
         </Text>
         {this.renderItem('TopBar Actions', 'rnnsimple.TopBarActionsScreen')}
         {this.renderItem('Push Actions', 'rnnsimple.PushActionsScreen')}
+        {this.renderItem('Roots', 'rnnsimple.RootsScreen')}
       </View>
     );
   }
