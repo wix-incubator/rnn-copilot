@@ -25,15 +25,29 @@ const app = new App()
 #### `set()`
 
 ### Root
+A singleton that handles root actions 
 ```
 import {Root} from 'rnn-simple';
 
-const root = new Root();
-root.withBottomTab().withBottomTab().set();
+Root.withBottomTab(...).withBottomTab(..).set();
+// Or
+Root.clear().withSingleStack('mainScreen').set();
 ```
 
-`withBottomTab(bottomTab: BottomTab)`  
-Add a single bottom tab
+#### `withSingleStack(mainScreen: string)`  
+Set a single stack layout with a main screen
+
+#### `withBottomTab(bottomTab: BottomTab)`  
+Add a single bottom tab to root layout
+
+####  `clear()`  
+Clear current layout settings in order to start a new one
+
+#### `set()`  
+Set root with current layout configuration
+
+#### `changeTab(tabId: string)`  
+Manually change selected tab
 
 
 ### TopBar
