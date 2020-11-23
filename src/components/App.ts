@@ -1,3 +1,4 @@
+import {assign} from 'lodash';
 import {
   Navigation,
   Options,
@@ -6,10 +7,9 @@ import {
   OptionsTopBar,
   OptionsBottomTab,
   OptionsBottomTabs,
-  OptionsModalPresentationStyle,
 } from 'react-native-navigation';
 
-export default class App {
+class App {
   options: Options = {};
 
   withStatusBar(statusBarOptions: OptionsStatusBar) {
@@ -106,14 +106,19 @@ export default class App {
     // },
   }
 
-  withModalPresentationStyle(presentation: OptionsModalPresentationStyle) {
-    this.options.modalPresentationStyle = presentation;
+  withOptions(options: Options) {
+    assign(this.options, options);
     return this;
   }
 
-  withOptions() {}
+  clear() {
+    this.options = {};
+    return this;
+  }
 
   set() {
     Navigation.setDefaultOptions(this.options);
   }
 }
+
+export default new App();

@@ -14,9 +14,9 @@ Navigation.registerComponent(appName, () => AppScreen);
 Navigation.registerComponent(`${appName}_1`, () => AppScreen);
 Navigation.registerComponent(`${appName}_2`, () => AppScreen);
 
-const app = new App()
-  .withTopBar({noBorder: true, backButton: {icon: Assets.icons.back, color: Colors.grey10}})
-  .withLayout({componentBackgroundColor: Colors.grey80});
+App.withTopBar({noBorder: true, backButton: {icon: Assets.icons.back, color: Colors.grey10}}).withLayout({
+  componentBackgroundColor: Colors.grey80,
+});
 
 Root.withBottomTab(
   new BottomTab('main', `${appName}_1`).withLabel('Main').withIcon(Assets.icons.home).withSelectedColor(Colors.blue30),
@@ -25,6 +25,6 @@ Root.withBottomTab(
 );
 
 Navigation.events().registerAppLaunchedListener(() => {
-  app.set();
+  App.set();
   Root.set();
 });
