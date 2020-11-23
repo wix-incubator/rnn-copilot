@@ -5,7 +5,7 @@ export default class Root {
   layout: Layout = {};
   mainScreen?: string;
 
-  constructor(mainScreen: string) {
+  constructor(mainScreen?: string) {
     if (mainScreen) {
       this.mainScreen = mainScreen;
       this.layout.stack = {children: [{component: {name: mainScreen}}]};
