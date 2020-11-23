@@ -88,6 +88,10 @@ export default class TopBar {
     return this;
   }
 
+  get() {
+    return this.options;
+  }
+
   update() {
     Navigation.mergeOptions(this.originComponentId || getVisibleComponentId(), {
       topBar: this.options,

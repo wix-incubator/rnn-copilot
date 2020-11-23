@@ -1,4 +1,5 @@
 import {Navigation, Options, Layout} from 'react-native-navigation';
+import {TopBar} from '../components';
 
 type ScreenType = 'screen' | 'modal';
 export default class PushAction {
@@ -7,6 +8,7 @@ export default class PushAction {
   screenType: ScreenType = 'screen';
   options: Options = {};
   passProps?: object;
+  topBar?: TopBar;
 
   constructor(componentId: string, screenName: string) {
     this.originComponentId = componentId;
@@ -18,6 +20,10 @@ export default class PushAction {
     return this;
   }
 
+  withTopBar(topBar: TopBar) {
+    this.topBar = topBar;
+  }
+
   withProps(passProps?: object) {
     this.passProps = passProps;
   }
@@ -27,9 +33,14 @@ export default class PushAction {
       component: {
         name: this.screenName,
         passProps: this.passProps,
-        // options: {modalPresentationStyle: 'fullScreen'},
+        options: {},
       },
     };
+
+    if (this.topBar) {
+      layout.component!.options!.topBar = this.topBar.get();
+    }
+
     if (this.screenType === 'screen') {
       Navigation.push(this.originComponentId, layout);
     } else {
