@@ -10,7 +10,7 @@ interface State {
   topBarSubtitle?: string;
 }
 
-class PushActionsScreen extends Component<undefined, State> {
+class PushActionsScreen extends Component<{componentId: string}, State> {
   state = {
     screenType: 'screen' as ScreenType,
     withTopBar: false,
@@ -20,7 +20,7 @@ class PushActionsScreen extends Component<undefined, State> {
 
   push = () => {
     const {screenType, withTopBar, topBarTitle, topBarSubtitle} = this.state;
-    const pushAction = push('rnnsimple.PushActionsScreen');
+    const pushAction = push('rnnsimple.PushActionsScreen', this.props.componentId);
     screenType === 'modal' && pushAction.asModal();
     if (withTopBar) {
       const topBar = new TopBar().withTitle(topBarTitle).withSubtitle(topBarSubtitle);
