@@ -16,7 +16,7 @@ interface State {
   withLoader?: boolean;
 }
 
-class TopBarActionsScreen extends Component<undefined, State> {
+class TopBarActionsScreen extends Component<{componentId: string}, State> {
   state = {
     title: '',
     subtitle: '',
@@ -31,7 +31,7 @@ class TopBarActionsScreen extends Component<undefined, State> {
     withLoader: false,
   };
 
-  topBar = new TopBar();
+  topBar = new TopBar(this.props.componentId);
 
   updateTopBar = () => {
     const {

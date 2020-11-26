@@ -1,6 +1,8 @@
 import {Navigation, OptionsTopBar, OptionsTopBarButton} from 'react-native-navigation';
-import {getVisibleComponentId} from '../AppStack';
 import {assign, isUndefined} from 'lodash';
+
+const MISSING_COMPONENT_ID_MESSAGE =
+  'TopBar is missing a componentId. Make sure to pass a componentId when creating a new TopBar instance or using the "withComponentId" method';
 
 export default class TopBar {
   originComponentId?: string;
@@ -8,6 +10,11 @@ export default class TopBar {
 
   constructor(componentId?: string) {
     this.originComponentId = componentId;
+  }
+
+  withComponentId(componentId: string) {
+    this.originComponentId = componentId;
+    return this;
   }
 
   withTitle(title: string, options?: OptionsTopBar['title']) {
@@ -93,7 +100,10 @@ export default class TopBar {
   }
 
   update() {
-    Navigation.mergeOptions(this.originComponentId || getVisibleComponentId(), {
+    if (!this.originComponentId) {
+      throw new Error(MISSING_COMPONENT_ID_MESSAGE);
+    }
+    Navigation.mergeOptions(this.originComponentId, {
       topBar: this.options,
     });
   }

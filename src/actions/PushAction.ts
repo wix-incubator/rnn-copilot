@@ -2,17 +2,33 @@ import {Navigation, Options, Layout} from 'react-native-navigation';
 import {TopBar} from '../components';
 
 type ScreenType = 'screen' | 'modal';
+
+const MISSING_COMPONENT_ID_MESSAGE =
+  'Push action is missing a componentId. Make sure to pass a componentId when initiating a new push or using the "withComponentId" method';
+
+const MISSING_SCREEN_MESSAGE =
+  'Push action is missing a screenName to open. Make sure to pass a screenName when initiating a new push or using the "withScreen" method';
 export default class PushAction {
-  originComponentId: string;
-  screenName: string;
+  originComponentId?: string;
+  screenName?: string;
   screenType: ScreenType = 'screen';
   options: Options = {};
   passProps?: object;
   topBar?: TopBar;
 
-  constructor(componentId: string, screenName: string) {
+  constructor(screenName?: string, componentId?: string) {
     this.originComponentId = componentId;
     this.screenName = screenName;
+  }
+
+  withComponentId(componentId: string) {
+    this.originComponentId = componentId;
+    return this;
+  }
+
+  withScreen(screenName: string) {
+    this.screenName = screenName;
+    return this;
   }
 
   asModal() {
@@ -29,6 +45,14 @@ export default class PushAction {
   }
 
   go() {
+    if (!this.originComponentId) {
+      throw new Error(MISSING_COMPONENT_ID_MESSAGE);
+    }
+
+    if (!this.screenName) {
+      throw new Error(MISSING_SCREEN_MESSAGE);
+    }
+
     const layout: Layout = {
       component: {
         name: this.screenName,
