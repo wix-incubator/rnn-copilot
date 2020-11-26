@@ -6,7 +6,7 @@ import {Colors} from 'react-native-ui-lib/style';
 import {StyleSheet} from 'react-native';
 import {push} from 'rnn-simple';
 
-class App extends Component<{componentId: string}> {
+class App extends Component<Screen> {
   state = {};
   push = push(undefined, this.props.componentId);
 

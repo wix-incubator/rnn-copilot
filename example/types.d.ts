@@ -1,0 +1,3 @@
+type Screen = {
+  componentId: string;
+};

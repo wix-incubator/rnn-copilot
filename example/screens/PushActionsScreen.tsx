@@ -10,7 +10,7 @@ interface State {
   topBarSubtitle?: string;
 }
 
-class PushActionsScreen extends Component<{componentId: string}, State> {
+class PushActionsScreen extends Component<Screen, State> {
   state = {
     screenType: 'screen' as ScreenType,
     withTopBar: false,
