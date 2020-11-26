@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Button, TextField, Checkbox, Spacings, ColorPalette, Colors, ExpandableSection, Assets} from 'react-native-ui-lib';
-import {TopBar} from 'rnn-simple';
+import {TopBar, StatusBar} from 'rnn-simple';
 
 interface State {
   title?: string;
@@ -14,9 +14,10 @@ interface State {
   iconRightButton?: boolean;
   rightButtonLabel?: string;
   withLoader?: boolean;
+  hideStatusBar?: boolean;
 }
 
-class TopBarActionsScreen extends Component<{componentId: string}, State> {
+class TopBarActionsScreen extends Component<Screen, State> {
   state = {
     title: '',
     subtitle: '',
@@ -29,9 +30,12 @@ class TopBarActionsScreen extends Component<{componentId: string}, State> {
     disabledRightButton: false,
     iconRightButton: false,
     withLoader: false,
+    /* StatusBar */
+    hideStatusBar: false,
   };
 
   topBar = new TopBar(this.props.componentId);
+  statusBar = new StatusBar(this.props.componentId);
 
   updateTopBar = () => {
     const {
@@ -63,6 +67,11 @@ class TopBarActionsScreen extends Component<{componentId: string}, State> {
     this.topBar.update();
   };
 
+  updateStatusBar = () => {
+    const {hideStatusBar} = this.state;
+    this.statusBar.withVisibility(!hideStatusBar).update();
+  };
+
   render() {
     const {
       textColor,
@@ -74,12 +83,15 @@ class TopBarActionsScreen extends Component<{componentId: string}, State> {
       withRightButton,
       rightButtonLabel,
       withLoader,
+      /* StatusBar */
+      hideStatusBar,
     } = this.state;
     return (
       <View padding-s5 flex>
-        <Text text40 marginB-s3>
-          TopBar
-        </Text>
+        <View row centerV marginB-s3>
+          <Text text40>TopBar</Text>
+          <Button marginL-s5 label="Update TopBar" onPress={this.updateTopBar} size={Button.sizes.xSmall} />
+        </View>
         <View flex>
           <TextField title="Title" placeholder="Enter title" onChangeText={(title: string) => this.setState({title})} />
           <TextField title="Subtitle" placeholder="Enter subtitle" onChangeText={(subtitle: string) => this.setState({subtitle})} />
@@ -95,7 +107,7 @@ class TopBarActionsScreen extends Component<{componentId: string}, State> {
           </View>
 
           <View row>
-            <Checkbox label="Hide Top Bar" value={hideTopBar} onValueChange={(value) => this.setState({hideTopBar: value})} />
+            <Checkbox label="Hide TopBar" value={hideTopBar} onValueChange={(value) => this.setState({hideTopBar: value})} />
             <Checkbox
               containerStyle={{marginLeft: Spacings.s3}}
               label="Animate Transition"
@@ -134,10 +146,13 @@ class TopBarActionsScreen extends Component<{componentId: string}, State> {
             </View>
           </ExpandableSection>
           <Checkbox value={withLoader} label="With Loader" onValueChange={(value) => this.setState({withLoader: value})} />
-        </View>
 
-        <View center useSafeArea>
-          <Button label="Update" onPress={this.updateTopBar} />
+          <View row centerV marginB-s3 marginT-s5>
+            <Text text40>StatusBar</Text>
+            <Button marginL-s5 label="Update StatusBar" onPress={this.updateStatusBar} size={Button.sizes.xSmall} />
+          </View>
+
+          <Checkbox label="Hide StatusBar" value={hideStatusBar} onValueChange={(value) => this.setState({hideStatusBar: value})} />
         </View>
       </View>
     );
