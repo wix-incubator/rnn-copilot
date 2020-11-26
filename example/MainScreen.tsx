@@ -6,13 +6,14 @@ import {Colors} from 'react-native-ui-lib/style';
 import {StyleSheet} from 'react-native';
 import {push} from 'rnn-simple';
 
-class App extends Component {
+class App extends Component<{componentId: string}> {
   state = {};
+  push = push(undefined, this.props.componentId);
 
   renderItem(title: string, screenName: string) {
     return (
       // @ts-expect-error
-      <TouchableOpacity marginL-s5 paddingR-s5 paddingV-s4 style={styles.listItem} onPress={() => push(screenName).go()}>
+      <TouchableOpacity marginL-s5 paddingR-s5 paddingV-s4 style={styles.listItem} onPress={() => this.push.withScreen(screenName).go()}>
         <Text text70R>{title}</Text>
       </TouchableOpacity>
     );

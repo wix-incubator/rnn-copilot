@@ -5,14 +5,14 @@ import './configurations';
 import './screens';
 import './assets';
 import './components';
-import AppScreen from './App';
+import MainScreen from './MainScreen';
 import {name as appName} from '../app.json';
 
 // Register for single stack
-Navigation.registerComponent(appName, () => AppScreen);
+Navigation.registerComponent(appName, () => MainScreen);
 // Registering the same screen for two tabs
-Navigation.registerComponent(`${appName}_1`, () => AppScreen);
-Navigation.registerComponent(`${appName}_2`, () => AppScreen);
+Navigation.registerComponent(`${appName}_1`, () => MainScreen);
+Navigation.registerComponent(`${appName}_2`, () => MainScreen);
 
 App.withTopBar({noBorder: true, backButton: {icon: Assets.icons.back, color: Colors.grey10}}).withLayout({
   componentBackgroundColor: Colors.grey80,
