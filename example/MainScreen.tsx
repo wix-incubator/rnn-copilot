@@ -25,7 +25,7 @@ class App extends Component<Screen> {
         <Text marginL-s5 text40>
           RNNSimple
         </Text>
-        {this.renderItem('TopBar', 'rnnsimple.TopBarActionsScreen')}
+        {this.renderItem('TopBar & StatusBar', 'rnnsimple.TopBarActionsScreen')}
         {this.renderItem('Push', 'rnnsimple.PushActionsScreen')}
         {this.renderItem('Roots', 'rnnsimple.RootsScreen')}
       </View>
