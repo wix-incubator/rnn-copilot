@@ -1,5 +1,5 @@
 {
-  "name": "rnn-simple",
+  "name": "rnn-copilot",
   "version": "0.0.1",
   "private": true,
   "main": "src/index.ts",
@@ -12,11 +12,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "lodash": "^4.17.20",
-    "react": "16.13.1",
-    "react-native": "0.63.3"
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.4",
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/blur": "^3.6.0",
@@ -38,6 +38,9 @@
     "react-native-ui-lib": "^5.16.1",
     "react-test-renderer": "16.13.1",
     "typescript": "^4.1.2"
+  },
+  "peerDependencies": {
+    "react-native-navigation": "7.x.x"
   },
   "jest": {
     "preset": "react-native"
