@@ -146,11 +146,10 @@ Retrieve (RNN) layout object
 
 ## Roadmap
 
+- Create a StaticOptions component that combines all options
 - Come up with a better name than rnn-simple
 - Publish this library as an NPM package
-- Support showing loader as right button
-- Support manipulating specific top bar button (e.g. change disability)
-- Separate docs pages into each component folder
+- Support showing loader as right button (there's an issue)
 - Support easier ways to set app default styles for common behaviors
 
 ## Know Issues
