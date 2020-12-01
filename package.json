@@ -1,7 +1,6 @@
 {
   "name": "rnn-copilot",
   "version": "0.0.1",
-  "private": true,
   "main": "src/index.ts",
   "types": "index.d.ts",
   "scripts": {
