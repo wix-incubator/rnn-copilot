@@ -1,5 +1,5 @@
 import {Navigation} from 'react-native-navigation';
-import {App, Root, BottomTab} from 'rnn-simple';
+import {App, Root, BottomTab} from 'rnn-copilot';
 import {Assets, Colors} from 'react-native-ui-lib';
 import './configurations';
 import './screens';

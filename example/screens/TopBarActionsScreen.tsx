@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Button, TextField, Checkbox, Spacings, ColorPalette, Colors, ExpandableSection, Assets} from 'react-native-ui-lib';
-import {TopBar, StatusBar} from 'rnn-simple';
+import {TopBar, StatusBar} from 'rnn-copilot';
 
 interface State {
   title?: string;

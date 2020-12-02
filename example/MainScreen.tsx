@@ -4,7 +4,7 @@ import Text from 'react-native-ui-lib/text';
 import TouchableOpacity from 'react-native-ui-lib/touchableOpacity';
 import {Colors} from 'react-native-ui-lib/style';
 import {StyleSheet} from 'react-native';
-import {push} from 'rnn-simple';
+import {push} from 'rnn-copilot';
 
 class App extends Component<Screen> {
   state = {};

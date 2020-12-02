@@ -95,6 +95,11 @@ export default class TopBar {
     return this;
   }
 
+  withOptions(options: OptionsTopBar) {
+    this.options = {...this.options, ...options};
+    return this;
+  }
+
   get() {
     return this.options;
   }

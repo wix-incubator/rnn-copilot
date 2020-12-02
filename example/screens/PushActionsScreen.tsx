@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Button, ExpandableSection, Checkbox, Typography, TextField, Colors, Spacings} from 'react-native-ui-lib';
-import {push, TopBar} from 'rnn-simple';
+import {push, TopBar} from 'rnn-copilot';
 
 type ScreenType = 'screen' | 'modal';
 interface State {

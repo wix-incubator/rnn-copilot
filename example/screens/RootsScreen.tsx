@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Button, Colors, Assets} from 'react-native-ui-lib';
-import {BottomTab, Root} from 'rnn-simple';
+import {BottomTab, Root} from 'rnn-copilot';
 import {name as appName} from '../../app.json';
 
 class RootsScreen extends Component {
