@@ -9,6 +9,7 @@ An abstraction on top react-native-navigation with simplified API
 - [App](#app)
 - [Root](#root)
 - [TopBar](#topbar)
+- [StatusBar](#statusbar)
 - [BottomTab](#bottomtab)
 
 ### App
@@ -127,6 +128,25 @@ Add a multiple right button
 #### `setRightButton(buttonIndex: number, options: OptionsTopBarButton)`
 
 Update a specific right button
+
+### StatusBar 
+```
+import {StatusBar} from 'rnn-simple';
+
+new StatusBar(componentId).withBackground('red')
+```
+
+#### `withComponentId(componentId: string)`
+Set component id where the status should update
+
+#### `withVisibility(value: boolean)`
+Set status bar visibility
+
+#### `withTransparency(transparent: boolean)`
+Set status bar transparency
+
+#### `withBackgroundColor(color: string)`
+Set status bar background color
 
 ### BottomTab
 

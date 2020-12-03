@@ -3,7 +3,7 @@ import {Navigation, OptionsStatusBar} from 'react-native-navigation';
 const MISSING_COMPONENT_ID_MESSAGE =
   'StatusBar is missing a componentId. Make sure to pass a componentId when creating a new StatusBar instance or using the "withComponentId" method';
 
-export default class TopBar {
+export default class StatusBar {
   originComponentId?: string;
   options: OptionsStatusBar = {};
 
@@ -21,8 +21,20 @@ export default class TopBar {
     return this;
   }
 
+  withTransparency(transparent: boolean) {
+    this.options.drawBehind = transparent;
+    this.options.backgroundColor = transparent ? 'transparent' : undefined;
+    return this;
+  }
+
+  withBackgroundColor(color: string) {
+    this.options.backgroundColor = color;
+    return this;
+  }
+
   withOptions(options: OptionsStatusBar) {
     this.options = {...this.options, ...options};
+    return this;
   }
 
   get() {
