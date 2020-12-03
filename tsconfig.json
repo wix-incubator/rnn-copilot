@@ -13,12 +13,12 @@
     "lib": ["es6"],
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true,
+    // "noEmit": true,
     "strict": true,
     "target": "esnext",
     "skipLibCheck": true,
     "declaration": true
   },
-  "include": ["src/**/*", "example/**/*", "index.js"],
+  "include": ["src/**/*", "example/**/*"],
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
