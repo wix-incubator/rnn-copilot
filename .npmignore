@@ -18,3 +18,8 @@ app.json
 example/
 ios/
 android/
+
+# Typescript
+src/**/*.ts
+src/**/*.tsx
+!src/**/*.d.ts
