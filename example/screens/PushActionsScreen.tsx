@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Button, ExpandableSection, Checkbox, Typography, TextField, Colors, Spacings} from 'react-native-ui-lib';
-import {push, TopBar} from 'rnn-copilot';
+import {push, TopBar, StaticOptions, StatusBar} from 'rnn-copilot';
 
 type ScreenType = 'screen' | 'modal';
 interface State {
@@ -11,6 +11,14 @@ interface State {
 }
 
 class PushActionsScreen extends Component<Screen, State> {
+  static options() {
+    return (
+      new StaticOptions()
+        // .withStatusBar(new StatusBar().withBackgroundColor('red'))
+        .withTopBar(new TopBar().withTitle('Push Actions'))
+        .get()
+    );
+  }
   state = {
     screenType: 'screen' as ScreenType,
     withTopBar: false,
