@@ -1,0 +1,20 @@
+# Common
+node_modules/
+
+# Project files
+.vscode/
+.buckconfig
+.npmignore
+.watchmanconfig
+.gitignore
+.eslintrc.js
+.flowconfig
+.prettierrc.js
+tsconfig.json
+
+
+# Exmaple app files
+app.json
+example/
+ios/
+android/
