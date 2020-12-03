@@ -52,6 +52,8 @@ export default class TopBar {
     this.options.background.translucent = true;
     this.options.background.color = 'transparent';
     this.options.drawBehind = true;
+
+    return this;
   }
 
   withRightButton(button: OptionsTopBarButton) {
@@ -75,6 +77,7 @@ export default class TopBar {
     }
 
     assign(rightButton, options);
+    return this;
   }
 
   withLoader(loaderComponentId: string, buttonIndex?: number) {
