@@ -38,10 +38,12 @@ export default class PushAction {
 
   withTopBar(topBar: TopBar) {
     this.topBar = topBar;
+    return this;
   }
 
   withProps(passProps?: object) {
     this.passProps = passProps;
+    return this;
   }
 
   go() {
