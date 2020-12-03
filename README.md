@@ -146,6 +146,7 @@ Retrieve (RNN) layout object
 
 ## Roadmap
 
+- Setup a build in CI 
 - Create a StaticOptions component that combines all options
 - Support showing loader as right button (there's an issue)
 - Support easier ways to set app default styles for common behaviors
