@@ -1,4 +1,4 @@
-import {isEmpty, map} from 'lodash';
+import {isEmpty, isString, map} from 'lodash';
 import {Navigation, Layout} from 'react-native-navigation';
 import BottomTab from './BottomTab';
 
@@ -44,11 +44,13 @@ class Root {
     });
   }
 
-  changeTab(tabId: string) {
+  /**
+   * Change tab by either passing a tabId (string) or tabIndex (number)
+   */
+  changeTab(tabId: string | number) {
+    const bottomTabs = isString(tabId) ? {currentTabId: tabId} : {currentTabIndex: tabId};
     Navigation.mergeOptions(this.bottomTabsId, {
-      bottomTabs: {
-        currentTabId: tabId,
-      },
+      bottomTabs: bottomTabs,
     });
   }
 }
