@@ -1,5 +1,5 @@
 import {Navigation} from 'react-native-navigation';
-import {App, Root, BottomTab} from 'rnn-copilot';
+import {App, Root, BottomTab, TopBar} from 'rnn-copilot';
 import {Assets, Colors} from 'react-native-ui-lib';
 import './configurations';
 import './screens';
@@ -14,7 +14,7 @@ Navigation.registerComponent(appName, () => MainScreen);
 Navigation.registerComponent(`${appName}_1`, () => MainScreen);
 Navigation.registerComponent(`${appName}_2`, () => MainScreen);
 
-App.withTopBar({noBorder: true, backButton: {icon: Assets.icons.back, color: Colors.grey10}}).withLayout({
+App.withTopBar(new TopBar().withBorder(false).withOptions({backButton: {icon: Assets.icons.back, color: Colors.grey10}})).withLayout({
   componentBackgroundColor: Colors.grey80,
 });
 
