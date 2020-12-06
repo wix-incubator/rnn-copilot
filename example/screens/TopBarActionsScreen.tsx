@@ -9,6 +9,7 @@ interface State {
   hideTopBar?: boolean;
   animate?: boolean;
   transparent?: boolean;
+  withBorder?: boolean;
   withRightButton?: boolean;
   disabledRightButton?: boolean;
   iconRightButton?: boolean;
@@ -25,6 +26,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
     hideTopBar: false,
     animate: false,
     transparent: false,
+    withBorder: false,
     withRightButton: false,
     rightButtonLabel: 'Button',
     disabledRightButton: false,
@@ -45,6 +47,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
       hideTopBar,
       animate,
       transparent,
+      withBorder,
       withRightButton,
       rightButtonLabel,
       disabledRightButton,
@@ -56,8 +59,10 @@ class TopBarActionsScreen extends Component<Screen, State> {
       .withSubtitle(subtitle, {color: textColor})
       .withVisibility(!hideTopBar)
       .withAnimation(animate)
+      .withBorder(withBorder)
       .withRightButtons([]);
     transparent && this.topBar.withTransparency();
+
     withRightButton &&
       this.topBar.withRightButtons([
         {id: 'button', text: rightButtonLabel, enabled: !disabledRightButton, icon: iconRightButton ? Assets.icons.account : undefined},
@@ -78,6 +83,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
       hideTopBar,
       animate,
       transparent,
+      withBorder,
       disabledRightButton,
       iconRightButton,
       withRightButton,
@@ -120,6 +126,12 @@ class TopBarActionsScreen extends Component<Screen, State> {
             label="Set Transparency"
             value={transparent}
             onValueChange={(value) => this.setState({transparent: value})}
+          />
+          <Checkbox
+            containerStyle={{marginTop: Spacings.s3}}
+            label="Set Border"
+            value={withBorder}
+            onValueChange={(value) => this.setState({withBorder: value})}
           />
 
           <ExpandableSection

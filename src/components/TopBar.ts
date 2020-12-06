@@ -35,6 +35,12 @@ export default class TopBar {
     return this;
   }
 
+  withBorder(visible: boolean = true) {
+    this.options.noBorder = !visible;
+    this.options.elevation = visible ? 5 : 0;
+    return this;
+  }
+
   withVisibility(value: boolean) {
     this.options.visible = value;
     return this;
