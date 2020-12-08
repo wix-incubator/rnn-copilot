@@ -94,7 +94,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
     this.statusBar.withVisibility(!hideStatusBar).update();
   };
 
-  renderColorPicker(title: string, value: string, onChange: Function) {
+  renderColorPicker(title: string, value: string | undefined, onChange: Function) {
     const {colors} = this.state;
     return (
       <View marginB-s3>
@@ -105,6 +105,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
           initialColor={Colors.grey10}
           value={value}
           colors={colors}
+          // @ts-expect-error
           onValueChange={onChange}
           onSubmit={(color) => this.setState({colors: [...colors, color]})}
         />
@@ -136,11 +137,11 @@ class TopBarActionsScreen extends Component<Screen, State> {
           <Button marginL-s5 label="Update TopBar" onPress={this.updateTopBar} size={Button.sizes.xSmall} />
         </View>
         <View flex>
-          {this.renderColorPicker('Background Color', backgroundColor, (value) => this.setState({backgroundColor: value}))}
+          {this.renderColorPicker('Background Color', backgroundColor, (value: string) => this.setState({backgroundColor: value}))}
           <TextField title="Title" placeholder="Enter title" onChangeText={(title: string) => this.setState({title})} />
           <TextField title="Subtitle" placeholder="Enter subtitle" onChangeText={(subtitle: string) => this.setState({subtitle})} />
 
-          {this.renderColorPicker('Title/Subtitle Color', textColor, (value) => this.setState({textColor: value}))}
+          {this.renderColorPicker('Title/Subtitle Color', textColor, (value: string) => this.setState({textColor: value}))}
 
           <View row>
             <Checkbox label="Hide TopBar" value={hideTopBar} onValueChange={(value) => this.setState({hideTopBar: value})} />
