@@ -37,7 +37,7 @@ export default class TopBar {
 
   withBorder(visible: boolean = true) {
     this.options.noBorder = !visible;
-    this.options.elevation = visible ? 5 : 0;
+    this.options.elevation = visible ? 4 : 0;
     return this;
   }
 
