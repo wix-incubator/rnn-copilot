@@ -17,6 +17,20 @@ export default class TopBar {
     return this;
   }
 
+  withBackground(color?: string, options?: OptionsTopBar['background']) {
+    if (!this.options.background) {
+      this.options.background = {};
+    }
+
+    this.options.background = {
+      ...this.options.background,
+      ...options,
+      color,
+    };
+
+    return this;
+  }
+
   withTitle(title: string, options?: OptionsTopBar['title']) {
     if (!this.options.title) {
       this.options.title = {};

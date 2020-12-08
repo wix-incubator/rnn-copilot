@@ -1,8 +1,21 @@
 import React, {Component} from 'react';
-import {View, Text, Button, TextField, Checkbox, Spacings, ColorPalette, Colors, ExpandableSection, Assets} from 'react-native-ui-lib';
+import {
+  View,
+  Text,
+  Button,
+  TextField,
+  Checkbox,
+  Spacings,
+  Colors,
+  ExpandableSection,
+  ColorPicker,
+  Assets,
+} from 'react-native-ui-lib';
 import {TopBar, StatusBar} from 'rnn-copilot';
 
 interface State {
+  colors: string[];
+  backgroundColor?: string;
   title?: string;
   subtitle?: string;
   textColor?: string;
@@ -20,6 +33,8 @@ interface State {
 
 class TopBarActionsScreen extends Component<Screen, State> {
   state = {
+    colors: [Colors.grey10, Colors.red30, Colors.blue30, Colors.green30],
+    backgroundColor: undefined,
     title: '',
     subtitle: '',
     textColor: Colors.grey10,
@@ -41,6 +56,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
 
   updateTopBar = () => {
     const {
+      backgroundColor,
       title,
       subtitle,
       textColor,
@@ -55,6 +71,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
       withLoader,
     } = this.state;
     this.topBar
+      .withBackground(backgroundColor)
       .withTitle(title, {color: textColor})
       .withSubtitle(subtitle, {color: textColor})
       .withVisibility(!hideTopBar)
@@ -77,8 +94,27 @@ class TopBarActionsScreen extends Component<Screen, State> {
     this.statusBar.withVisibility(!hideStatusBar).update();
   };
 
+  renderColorPicker(title: string, value: string, onChange: Function) {
+    const {colors} = this.state;
+    return (
+      <View marginB-s3>
+        <Text text70 grey30>
+          {title}
+        </Text>
+        <ColorPicker
+          initialColor={Colors.grey10}
+          value={value}
+          colors={colors}
+          onValueChange={onChange}
+          onSubmit={(color) => this.setState({colors: [...colors, color]})}
+        />
+      </View>
+    );
+  }
+
   render() {
     const {
+      backgroundColor,
       textColor,
       hideTopBar,
       animate,
@@ -92,6 +128,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
       /* StatusBar */
       hideStatusBar,
     } = this.state;
+
     return (
       <View padding-s5 flex>
         <View row centerV marginB-s3>
@@ -99,18 +136,11 @@ class TopBarActionsScreen extends Component<Screen, State> {
           <Button marginL-s5 label="Update TopBar" onPress={this.updateTopBar} size={Button.sizes.xSmall} />
         </View>
         <View flex>
+          {this.renderColorPicker('Background Color', backgroundColor, (value) => this.setState({backgroundColor: value}))}
           <TextField title="Title" placeholder="Enter title" onChangeText={(title: string) => this.setState({title})} />
           <TextField title="Subtitle" placeholder="Enter subtitle" onChangeText={(subtitle: string) => this.setState({subtitle})} />
 
-          <View row centerV>
-            <Text text70>Select Color</Text>
-
-            <ColorPalette
-              value={textColor}
-              onValueChange={(value: string) => this.setState({textColor: value})}
-              colors={[Colors.grey10, Colors.red30, Colors.blue30, Colors.green30]}
-            />
-          </View>
+          {this.renderColorPicker('Title/Subtitle Color', textColor, (value) => this.setState({textColor: value}))}
 
           <View row>
             <Checkbox label="Hide TopBar" value={hideTopBar} onValueChange={(value) => this.setState({hideTopBar: value})} />
