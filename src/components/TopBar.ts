@@ -17,6 +17,9 @@ export default class TopBar {
     return this;
   }
 
+  /**
+   * Set top bar background color. Pass options for advanced configuration
+   */
   withBackground(color?: string, options?: OptionsTopBar['background']) {
     if (!this.options.background) {
       this.options.background = {};

@@ -87,6 +87,9 @@ new TopBar().
 #### `update()`
 Executes RNN mergeOption API
 
+#### `withBackground(color?: string, options?: OptionsTopBar['background'])`
+Change top bar's background color. pass options for advanced configuration
+
 #### `withTitle(title: string, options)`
 Updates title text with support for passing customizable options
 
