@@ -57,8 +57,8 @@ Root.withBottomTab(...).withBottomTab(..).set();
 Root.clear().withSingleStack('mainScreen').set();
 ```
 
-#### `withSingleStack(mainScreen: string)`
-Set a single stack layout with a main screen
+#### `withSingleStack(mainScreen: string | string[])`
+Set a single stack layout with a main screen or with a stack of screens
 
 #### `withBottomTab(bottomTab: BottomTab)`
 Add a single bottom tab to root layout

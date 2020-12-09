@@ -1,14 +1,14 @@
-import {isEmpty, isString, map} from 'lodash';
+import {isArray, isEmpty, isString, map} from 'lodash';
 import {Navigation, Layout} from 'react-native-navigation';
 import BottomTab from './BottomTab';
 
 class Root {
-  private mainScreen?: string;
+  private mainScreen?: string | string[];
   private bottomTabsId: string = 'bottom-tabs';
   private bottomTabs: BottomTab[] = [];
 
-  /** Set a single stack root with a main screen */
-  withSingleStack(mainScreen: string) {
+  /** Set a single stack root with a main screen or with an array of screens */
+  withSingleStack(mainScreen: string | string[]) {
     this.mainScreen = mainScreen;
     return this;
   }
@@ -30,7 +30,8 @@ class Root {
   set() {
     const layout: Layout = {};
     if (this.mainScreen) {
-      layout.stack = {children: [{component: {name: this.mainScreen}}]};
+      const screens = isArray(this.mainScreen) ? this.mainScreen : [this.mainScreen];
+      layout.stack = {children: screens.map((screen: string) => ({component: {name: screen}}))};
     } else if (!isEmpty(this.bottomTabs)) {
       layout.bottomTabs = {
         id: this.bottomTabsId,
