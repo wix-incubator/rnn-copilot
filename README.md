@@ -63,6 +63,14 @@ Set a single stack layout with a main screen or with a stack of screens
 #### `withBottomTab(bottomTab: BottomTab)`
 Add a single bottom tab to root layout
 
+#### `withProps(passProps?: object | object[])`
+Pass props to the main screen  
+Pass an array of props in case you want to pass to a stack of screens
+
+#### `withOptions(options?: Options | Options[])`
+Pass options to the main screen
+Pass an array of options in case you want to pass to a stack of screens
+
 #### `clear()`
 Clear current layout settings in order to start a new one
 
