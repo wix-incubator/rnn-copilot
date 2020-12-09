@@ -1,11 +1,13 @@
-import {isArray, isEmpty, isString, map} from 'lodash';
-import {Navigation, Layout} from 'react-native-navigation';
+import {isArray, isEmpty, isString, map, isUndefined} from 'lodash';
+import {Navigation, Layout, Options} from 'react-native-navigation';
 import BottomTab from './BottomTab';
 
 class Root {
   private mainScreen?: string | string[];
   private bottomTabsId: string = 'bottom-tabs';
   private bottomTabs: BottomTab[] = [];
+  private passProps?: object | object[];
+  private options?: Options | Options[];
 
   /** Set a single stack root with a main screen or with an array of screens */
   withSingleStack(mainScreen: string | string[]) {
@@ -16,6 +18,24 @@ class Root {
   /** Add a bottom tab to Tabbed based root */
   withBottomTab(bottomTab: BottomTab) {
     this.bottomTabs.push(bottomTab);
+    return this;
+  }
+
+  /**
+   * Pass props to the main screen
+   * Pass an array of props in case you want to pass to a stack of screens
+   */
+  withProps(passProps?: object | object[]) {
+    this.passProps = passProps;
+    return this;
+  }
+
+  /**
+   * Pass options to the main screen
+   * Pass an array of options in case you want to pass to a stack of screens
+   */
+  withOptions(options?: Options | Options[]) {
+    this.options = options;
     return this;
   }
 
@@ -31,7 +51,14 @@ class Root {
     const layout: Layout = {};
     if (this.mainScreen) {
       const screens = isArray(this.mainScreen) ? this.mainScreen : [this.mainScreen];
-      layout.stack = {children: screens.map((screen: string) => ({component: {name: screen}}))};
+      const allPassProps = isArray(this.passProps) ? this.passProps : [this.passProps];
+      const allOptions = isArray(this.options) ? this.options : [this.options];
+
+      layout.stack = {
+        children: screens.map((screen: string, index: number) => ({
+          component: {name: screen, passProps: allPassProps[index], options: allOptions[index]},
+        })),
+      };
     } else if (!isEmpty(this.bottomTabs)) {
       layout.bottomTabs = {
         id: this.bottomTabsId,
