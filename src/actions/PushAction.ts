@@ -12,7 +12,7 @@ export default class PushAction {
   originComponentId?: string;
   screenName?: string;
   screenType: ScreenType = 'screen';
-  options: Options = {};
+  options?: Options;
   passProps?: object;
   topBar?: TopBar;
 
@@ -46,6 +46,11 @@ export default class PushAction {
     return this;
   }
 
+  withOptions(options?: Options) {
+    this.options = options;
+    return this;
+  }
+
   go() {
     if (!this.originComponentId) {
       throw new Error(MISSING_COMPONENT_ID_MESSAGE);
@@ -65,6 +70,13 @@ export default class PushAction {
 
     if (this.topBar) {
       layout.component!.options!.topBar = this.topBar.get();
+    }
+
+    if (this.options) {
+      layout.component!.options = {
+        ...layout.component?.options,
+        ...this.options,
+      };
     }
 
     if (this.screenType === 'screen') {
