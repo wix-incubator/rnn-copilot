@@ -2,7 +2,7 @@
   "name": "rnn-copilot",
   "version": "0.0.13",
   "homepage": "https://github.com/wix-incubator/rnn-copilot",
-  "main": "src/index.ts",
+  "main": "src/index",
   "types": "src/index.d.ts",
   "scripts": {
     "android": "react-native run-android",
