@@ -14,7 +14,7 @@ tsconfig.json
 
 
 # Exmaple app files
-./index.js
+./index.ts
 app.json
 example/
 ios/
