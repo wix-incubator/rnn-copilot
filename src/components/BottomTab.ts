@@ -1,20 +1,22 @@
 import {Layout, OptionsBottomTab} from 'react-native-navigation';
+import {isArray, map} from 'lodash';
 
 export default class BottomTab {
   layout: Layout = {};
 
-  constructor(id: string, screenId: string) {
+  constructor(id: string, screenId: string | string[]) {
+    const screens = isArray(screenId) ? screenId : [screenId];
     this.layout = {
       stack: {
         id,
-        children: [
-          {
+        children: map(screens, (screen) => {
+          return {
             component: {
-              id: screenId,
-              name: screenId,
+              id: screen,
+              name: screen,
             },
-          },
-        ],
+          };
+        }),
         options: {bottomTab: {}},
       },
     };
