@@ -28,7 +28,7 @@ class PushActionsScreen extends Component<Screen, State> {
 
   push = () => {
     const {screenType, withTopBar, topBarTitle, topBarSubtitle} = this.state;
-    const pushAction = push('rnnsimple.PushActionsScreen', this.props.componentId);
+    const pushAction = push('rnncopilot.PushActionsScreen', this.props.componentId);
     screenType === 'modal' && pushAction.asModal();
     if (withTopBar) {
       const topBar = new TopBar().withTitle(topBarTitle).withSubtitle(topBarSubtitle);

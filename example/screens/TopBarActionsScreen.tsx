@@ -84,7 +84,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
       this.topBar.withRightButtons([
         {id: 'button', text: rightButtonLabel, enabled: !disabledRightButton, icon: iconRightButton ? Assets.icons.account : undefined},
       ]);
-    withLoader && this.topBar.withLoader('rnnsimple.Loader');
+    withLoader && this.topBar.withLoader('rnncopilot.Loader');
 
     this.topBar.update();
   };

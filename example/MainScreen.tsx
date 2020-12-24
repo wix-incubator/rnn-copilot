@@ -23,11 +23,11 @@ class App extends Component<Screen> {
     return (
       <View flex paddingT-s5>
         <Text marginL-s5 text40>
-          RNNSimple
+          RNN Copilot
         </Text>
-        {this.renderItem('TopBar & StatusBar', 'rnnsimple.TopBarActionsScreen')}
-        {this.renderItem('Push', 'rnnsimple.PushActionsScreen')}
-        {this.renderItem('Roots', 'rnnsimple.RootsScreen')}
+        {this.renderItem('TopBar & StatusBar', 'rnncopilot.TopBarActionsScreen')}
+        {this.renderItem('Push', 'rnncopilot.PushActionsScreen')}
+        {this.renderItem('Roots', 'rnncopilot.RootsScreen')}
       </View>
     );
   }

@@ -1,4 +1,4 @@
-package com.rnnsimple;
+package com.rnncopilot;
 
 import com.reactnativenavigation.NavigationActivity;
 

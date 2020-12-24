@@ -3,6 +3,6 @@ import PushActionsScreen from './PushActionsScreen';
 import TopBarActionsScreen from './TopBarActionsScreen';
 import RootsScreen from './RootsScreen';
 
-Navigation.registerComponent('rnnsimple.PushActionsScreen', () => PushActionsScreen);
-Navigation.registerComponent('rnnsimple.TopBarActionsScreen', () => TopBarActionsScreen);
-Navigation.registerComponent('rnnsimple.RootsScreen', () => RootsScreen);
+Navigation.registerComponent('rnncopilot.PushActionsScreen', () => PushActionsScreen);
+Navigation.registerComponent('rnncopilot.TopBarActionsScreen', () => TopBarActionsScreen);
+Navigation.registerComponent('rnncopilot.RootsScreen', () => RootsScreen);

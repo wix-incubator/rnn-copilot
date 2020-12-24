@@ -7,4 +7,4 @@ const Loader = () => {
   return <ActivityIndicator size="small" color={Colors.grey10} />;
 };
 
-Navigation.registerComponent('rnnsimple.Loader', () => Loader);
+Navigation.registerComponent('rnncopilot.Loader', () => Loader);
