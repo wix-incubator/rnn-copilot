@@ -5,3 +5,4 @@ export function push(screenName?: string, componentId?: string) {
 }
 
 export * from './components';
+export {default as NavigationState} from './NavigationState';

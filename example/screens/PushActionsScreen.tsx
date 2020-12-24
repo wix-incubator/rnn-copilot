@@ -1,16 +1,9 @@
 import React, {Component} from 'react';
+import {Navigation} from 'react-native-navigation';
 import {View, Text, Button, ExpandableSection, Checkbox, Typography, TextField, Colors, Spacings} from 'react-native-ui-lib';
-import {push, TopBar, StaticOptions, StatusBar} from 'rnn-copilot';
+import {push, TopBar, StaticOptions, NavigationState} from 'rnn-copilot';
 
-type ScreenType = 'screen' | 'modal';
-interface State {
-  screenType: ScreenType;
-  withTopBar?: boolean;
-  topBarTitle?: string;
-  topBarSubtitle?: string;
-}
-
-class PushActionsScreen extends Component<Screen, State> {
+class PushActionsScreen extends Component<Screen> {
   static options() {
     return (
       new StaticOptions()
@@ -19,17 +12,20 @@ class PushActionsScreen extends Component<Screen, State> {
         .get()
     );
   }
+
   state = {
-    screenType: 'screen' as ScreenType,
     withTopBar: false,
     topBarTitle: '',
     topBarSubtitle: '',
   };
 
-  push = () => {
-    const {screenType, withTopBar, topBarTitle, topBarSubtitle} = this.state;
+  pushScreen = () => this.push(false);
+  pushModal = () => this.push(true);
+
+  push = (asModal: boolean) => {
+    const {withTopBar, topBarTitle, topBarSubtitle} = this.state;
     const pushAction = push('rnncopilot.PushActionsScreen', this.props.componentId);
-    screenType === 'modal' && pushAction.asModal();
+    asModal && pushAction.asModal();
     if (withTopBar) {
       const topBar = new TopBar().withTitle(topBarTitle).withSubtitle(topBarSubtitle);
       pushAction.withTopBar(topBar);
@@ -37,9 +33,12 @@ class PushActionsScreen extends Component<Screen, State> {
     pushAction.go();
   };
 
+  dismissAll = () => {
+    Navigation.dismissAllModals();
+  };
+
   render() {
-    const {screenType, withTopBar} = this.state;
-    const isModal = screenType === 'modal';
+    const {withTopBar} = this.state;
 
     return (
       <View flex padding-s5>
@@ -48,8 +47,8 @@ class PushActionsScreen extends Component<Screen, State> {
         </Text>
         <View flex>
           <View row center>
-            <Button label="Screen" marginR-s5 outline={isModal} onPress={() => this.setState({screenType: 'screen'})} />
-            <Button label="Modal" outline={!isModal} onPress={() => this.setState({screenType: 'modal'})} />
+            <Button label="Screen" marginR-s5 onPress={this.pushScreen} />
+            <Button label="Modal" onPress={this.pushModal} />
           </View>
           <ExpandableSection
             onPress={() => this.setState({withTopBar: !withTopBar})}
@@ -77,8 +76,12 @@ class PushActionsScreen extends Component<Screen, State> {
             </View>
           </ExpandableSection>
         </View>
-        <View useSafeArea center>
-          <Button label="Push" onPress={this.push} />
+        <View flex>
+          <Text text60>General Info</Text>
+          <Text text70>Stack Level: {NavigationState.stackCounter}</Text>
+        </View>
+        <View useSafeArea center row>
+          <Button marginL-s4 label="Dismiss All Modals" onPress={this.dismissAll} />
         </View>
       </View>
     );
