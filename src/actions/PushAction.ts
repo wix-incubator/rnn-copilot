@@ -31,8 +31,8 @@ export default class PushAction {
     return this;
   }
 
-  asModal() {
-    this.screenType = 'modal';
+  asModal(useModal: boolean = true) {
+    this.screenType = useModal ? 'modal' : 'screen';
     return this;
   }
 
