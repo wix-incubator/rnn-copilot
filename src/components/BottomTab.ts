@@ -1,5 +1,5 @@
-import {Layout, OptionsBottomTab} from 'react-native-navigation';
-import {isArray, map} from 'lodash';
+import {Layout, LayoutStackChildren, OptionsBottomTab} from 'react-native-navigation';
+import {forEach, isArray, map} from 'lodash';
 
 export default class BottomTab {
   layout: Layout = {};
@@ -64,6 +64,14 @@ export default class BottomTab {
       ...this.layout.stack?.options?.bottomTab,
       ...options,
     };
+    return this;
+  }
+
+  withProps(passProps: object | object[]) {
+    const allPassProps = isArray(passProps) ? passProps : [passProps];
+    forEach(this.layout?.stack?.children, (child: LayoutStackChildren, index) => {
+      child.component!.passProps = allPassProps[index];
+    });
     return this;
   }
 
