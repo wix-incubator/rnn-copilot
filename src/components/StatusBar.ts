@@ -32,6 +32,11 @@ export default class StatusBar {
     return this;
   }
 
+  withDarkScheme(useDarkScheme: boolean) {
+    this.options.style = useDarkScheme ? 'dark' : 'light';
+    return this;
+  }
+
   withOptions(options: OptionsStatusBar) {
     this.options = {...this.options, ...options};
     return this;

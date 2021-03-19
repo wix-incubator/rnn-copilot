@@ -141,6 +141,8 @@ Set status bar transparency
 #### `withBackgroundColor(color: string)`
 Set status bar background color
 
+#### `withDarkScheme(useDarkScheme: booolean)`
+Set status bar style with dark/light scheme
 
 ### StaticOptions
 ```

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {ScrollView} from 'react-native';
 import {
   View,
   Text,
@@ -10,28 +11,11 @@ import {
   ExpandableSection,
   ColorPicker,
   Assets,
+  Switch,
 } from 'react-native-ui-lib';
 import {TopBar, StatusBar} from 'rnn-copilot';
 
-interface State {
-  colors: string[];
-  backgroundColor?: string;
-  title?: string;
-  subtitle?: string;
-  textColor?: string;
-  hideTopBar?: boolean;
-  animate?: boolean;
-  transparent?: boolean;
-  withBorder?: boolean;
-  withRightButton?: boolean;
-  disabledRightButton?: boolean;
-  iconRightButton?: boolean;
-  rightButtonLabel?: string;
-  withLoader?: boolean;
-  hideStatusBar?: boolean;
-}
-
-class TopBarActionsScreen extends Component<Screen, State> {
+class TopBarActionsScreen extends Component<Screen> {
   state = {
     colors: [Colors.grey10, Colors.red30, Colors.blue30, Colors.green30],
     backgroundColor: undefined,
@@ -49,6 +33,7 @@ class TopBarActionsScreen extends Component<Screen, State> {
     withLoader: false,
     /* StatusBar */
     hideStatusBar: false,
+    useDarkTheme: false,
   };
 
   topBar = new TopBar(this.props.componentId);
@@ -90,8 +75,8 @@ class TopBarActionsScreen extends Component<Screen, State> {
   };
 
   updateStatusBar = () => {
-    const {hideStatusBar} = this.state;
-    this.statusBar.withVisibility(!hideStatusBar).update();
+    const {hideStatusBar, useDarkTheme} = this.state;
+    this.statusBar.withVisibility(!hideStatusBar).withDarkScheme(useDarkTheme).update();
   };
 
   renderColorPicker(title: string, value: string | undefined, onChange: Function) {
@@ -128,76 +113,83 @@ class TopBarActionsScreen extends Component<Screen, State> {
       withLoader,
       /* StatusBar */
       hideStatusBar,
+      useDarkTheme,
     } = this.state;
 
     return (
-      <View padding-s5 flex>
-        <View row centerV marginB-s3>
-          <Text text40>TopBar</Text>
-          <Button marginL-s5 label="Update TopBar" onPress={this.updateTopBar} size={Button.sizes.xSmall} />
-        </View>
-        <View flex>
-          {this.renderColorPicker('Background Color', backgroundColor, (value: string) => this.setState({backgroundColor: value}))}
-          <TextField title="Title" placeholder="Enter title" onChangeText={(title: string) => this.setState({title})} />
-          <TextField title="Subtitle" placeholder="Enter subtitle" onChangeText={(subtitle: string) => this.setState({subtitle})} />
-
-          {this.renderColorPicker('Title/Subtitle Color', textColor, (value: string) => this.setState({textColor: value}))}
-
-          <View row>
-            <Checkbox label="Hide TopBar" value={hideTopBar} onValueChange={(value) => this.setState({hideTopBar: value})} />
-            <Checkbox
-              containerStyle={{marginLeft: Spacings.s3}}
-              label="Animate Transition"
-              value={animate}
-              onValueChange={(value) => this.setState({animate: value})}
-            />
+      <ScrollView>
+        <View padding-s5 flex>
+          <View row centerV marginB-s3>
+            <Text text40>TopBar</Text>
+            <Button marginL-s5 label="Update TopBar" onPress={this.updateTopBar} size={Button.sizes.xSmall} />
           </View>
-          <Checkbox
-            containerStyle={{marginTop: Spacings.s3}}
-            label="Set Transparency"
-            value={transparent}
-            onValueChange={(value) => this.setState({transparent: value})}
-          />
-          <Checkbox
-            containerStyle={{marginTop: Spacings.s3}}
-            label="Set Border"
-            value={withBorder}
-            onValueChange={(value) => this.setState({withBorder: value})}
-          />
+          <View flex>
+            {this.renderColorPicker('Background Color', backgroundColor, (value: string) => this.setState({backgroundColor: value}))}
+            <TextField title="Title" placeholder="Enter title" onChangeText={(title: string) => this.setState({title})} />
+            <TextField title="Subtitle" placeholder="Enter subtitle" onChangeText={(subtitle: string) => this.setState({subtitle})} />
 
-          <ExpandableSection
-            onPress={() => this.setState({withRightButton: !withRightButton})}
-            expanded={withRightButton}
-            sectionHeader={
-              <View paddingV-s3 pointerEvents="none">
-                <Checkbox label="With Right Button" value={withRightButton} />
-              </View>
-            }>
-            <View padding-s5 marginB-s3 style={{borderWidth: 1, borderColor: Colors.grey50}}>
-              <TextField title="Button Label" placeholder="Enter right button label" value={rightButtonLabel} />
+            {this.renderColorPicker('Title/Subtitle Color', textColor, (value: string) => this.setState({textColor: value}))}
+
+            <View row>
+              <Checkbox label="Hide TopBar" value={hideTopBar} onValueChange={(value) => this.setState({hideTopBar: value})} />
               <Checkbox
-                label="Disabled"
-                value={disabledRightButton}
-                onValueChange={(value) => this.setState({disabledRightButton: value})}
-              />
-              <Checkbox
-                containerStyle={{marginTop: Spacings.s2}}
-                label="Use Icon"
-                value={iconRightButton}
-                onValueChange={(value) => this.setState({iconRightButton: value})}
+                containerStyle={{marginLeft: Spacings.s3}}
+                label="Animate Transition"
+                value={animate}
+                onValueChange={(value) => this.setState({animate: value})}
               />
             </View>
-          </ExpandableSection>
-          <Checkbox value={withLoader} label="With Loader" onValueChange={(value) => this.setState({withLoader: value})} />
+            <Checkbox
+              containerStyle={{marginTop: Spacings.s3}}
+              label="Set Transparency"
+              value={transparent}
+              onValueChange={(value) => this.setState({transparent: value})}
+            />
+            <Checkbox
+              containerStyle={{marginTop: Spacings.s3}}
+              label="Set Border"
+              value={withBorder}
+              onValueChange={(value) => this.setState({withBorder: value})}
+            />
 
-          <View row centerV marginB-s3 marginT-s5>
-            <Text text40>StatusBar</Text>
-            <Button marginL-s5 label="Update StatusBar" onPress={this.updateStatusBar} size={Button.sizes.xSmall} />
+            <ExpandableSection
+              onPress={() => this.setState({withRightButton: !withRightButton})}
+              expanded={withRightButton}
+              sectionHeader={
+                <View paddingV-s3 pointerEvents="none">
+                  <Checkbox label="With Right Button" value={withRightButton} />
+                </View>
+              }>
+              <View padding-s5 marginB-s3 style={{borderWidth: 1, borderColor: Colors.grey50}}>
+                <TextField title="Button Label" placeholder="Enter right button label" value={rightButtonLabel} />
+                <Checkbox
+                  label="Disabled"
+                  value={disabledRightButton}
+                  onValueChange={(value) => this.setState({disabledRightButton: value})}
+                />
+                <Checkbox
+                  containerStyle={{marginTop: Spacings.s2}}
+                  label="Use Icon"
+                  value={iconRightButton}
+                  onValueChange={(value) => this.setState({iconRightButton: value})}
+                />
+              </View>
+            </ExpandableSection>
+            <Checkbox value={withLoader} label="With Loader" onValueChange={(value) => this.setState({withLoader: value})} />
+
+            <View row centerV marginB-s3 marginT-s5>
+              <Text text40>StatusBar</Text>
+              <Button marginL-s5 label="Update StatusBar" onPress={this.updateStatusBar} size={Button.sizes.xSmall} />
+            </View>
+
+            <Checkbox label="Hide StatusBar" value={hideStatusBar} onValueChange={(value) => this.setState({hideStatusBar: value})} />
+            <View row marginT-s3 spread>
+              <Text>{useDarkTheme ? 'Dark Scheme' : 'Light Scheme'}</Text>
+              <Switch value={useDarkTheme} onValueChange={(value) => this.setState({useDarkTheme: value})} />
+            </View>
           </View>
-
-          <Checkbox label="Hide StatusBar" value={hideStatusBar} onValueChange={(value) => this.setState({hideStatusBar: value})} />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
