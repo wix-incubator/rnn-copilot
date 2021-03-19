@@ -12,7 +12,6 @@ class App extends Component<Screen> {
 
   renderItem(title: string, screenName: string) {
     return (
-      // @ts-expect-error
       <TouchableOpacity marginL-s5 paddingR-s5 paddingV-s4 style={styles.listItem} onPress={() => this.push.withScreen(screenName).go()}>
         <Text text70R>{title}</Text>
       </TouchableOpacity>
