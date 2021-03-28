@@ -1,10 +1,23 @@
-import {Options} from 'react-native-navigation';
+import {Navigation, Options} from 'react-native-navigation';
 import TopBar from './TopBar';
 import StatusBar from './StatusBar';
 
+const MISSING_COMPONENT_ID_MESSAGE =
+  'StaticOptions is missing a componentId. Make sure to pass a componentId when creating a new StaticOptions instance or using the "withComponentId" method';
+
 export default class StaticOptions {
-  topBar?: TopBar;
-  statusBar?: StatusBar;
+  originComponentId?: string;
+  topBar: TopBar = new TopBar();
+  statusBar: StatusBar = new StatusBar();
+
+  constructor(componentId?: string) {
+    this.originComponentId = componentId;
+  }
+
+  withComponentId(componentId: string) {
+    this.originComponentId = componentId;
+    return this;
+  }
 
   withTopBar(topBar: TopBar) {
     this.topBar = topBar;
@@ -28,5 +41,13 @@ export default class StaticOptions {
     }
 
     return options;
+  }
+
+  update() {
+    if (!this.originComponentId) {
+      throw new Error(MISSING_COMPONENT_ID_MESSAGE);
+    }
+
+    Navigation.mergeOptions(this.originComponentId, this.get());
   }
 }

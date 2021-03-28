@@ -13,7 +13,7 @@ import {
   Assets,
   Switch,
 } from 'react-native-ui-lib';
-import {TopBar, StatusBar} from 'rnn-copilot';
+import {TopBar, StatusBar, StaticOptions} from 'rnn-copilot';
 
 class TopBarActionsScreen extends Component<Screen> {
   state = {
@@ -36,8 +36,9 @@ class TopBarActionsScreen extends Component<Screen> {
     useDarkTheme: false,
   };
 
-  topBar = new TopBar(this.props.componentId);
-  statusBar = new StatusBar(this.props.componentId);
+  staticOptions = new StaticOptions(this.props.componentId);
+  // topBar = new TopBar(this.props.componentId);
+  // statusBar = new StatusBar(this.props.componentId);
 
   updateTopBar = () => {
     const {
@@ -55,28 +56,30 @@ class TopBarActionsScreen extends Component<Screen> {
       iconRightButton,
       withLoader,
     } = this.state;
-    this.topBar
+
+    this.staticOptions.topBar
       .withBackground(backgroundColor)
       .withTitle(title, {color: textColor})
       .withSubtitle(subtitle, {color: textColor})
       .withVisibility(!hideTopBar)
       .withAnimation(animate)
       .withBorder(withBorder)
-      .withRightButtons([]);
-    transparent && this.topBar.withTransparency();
+      .withRightButtons([])
+      .withTransparency(transparent);
 
     withRightButton &&
-      this.topBar.withRightButtons([
+      this.staticOptions.topBar.withRightButtons([
         {id: 'button', text: rightButtonLabel, enabled: !disabledRightButton, icon: iconRightButton ? Assets.icons.account : undefined},
       ]);
-    withLoader && this.topBar.withLoader('rnncopilot.Loader');
+    withLoader && this.staticOptions.topBar.withLoader('rnncopilot.Loader');
 
-    this.topBar.update();
+    this.staticOptions.update();
   };
 
   updateStatusBar = () => {
     const {hideStatusBar, useDarkTheme} = this.state;
-    this.statusBar.withVisibility(!hideStatusBar).withDarkScheme(useDarkTheme).update();
+    this.staticOptions.statusBar.withVisibility(!hideStatusBar).withDarkScheme(useDarkTheme);
+    this.staticOptions.update();
   };
 
   renderColorPicker(title: string, value: string | undefined, onChange: Function) {
