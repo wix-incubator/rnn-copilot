@@ -110,8 +110,8 @@ Updates top bar visibility
 #### `withAnimation(animate: boolean)`
 Should next update be animated
 
-#### `withTransparency()`
-Set a transparent top bar where content is drawn behind
+#### `withTransparency(transparent: boolean)`
+Toggle top bar transparency where content is drawn behind
 
 #### `withRightButton(button: OptionsTopBarButton)`
 Add a single right button (pushes to existing buttons)

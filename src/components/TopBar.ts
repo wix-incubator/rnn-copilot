@@ -68,13 +68,13 @@ export default class TopBar {
     return this;
   }
 
-  withTransparency() {
+  withTransparency(transparent = true) {
     if (!this.options.background) {
       this.options.background = {};
     }
-    this.options.background.translucent = true;
-    this.options.background.color = 'transparent';
-    this.options.drawBehind = true;
+    this.options.background.translucent = transparent;
+    this.options.background.color = transparent ? 'transparent' : undefined;
+    this.options.drawBehind = transparent;
 
     return this;
   }
