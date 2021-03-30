@@ -79,6 +79,21 @@ export default class TopBar {
     return this;
   }
 
+  withLeftButton(button: OptionsTopBarButton) {
+    if (!this.options.leftButtons) {
+      this.options.leftButtons = [];
+    }
+
+    this.options.leftButtons.push(button);
+
+    return this;
+  }
+
+  withLeftButtons(buttons: OptionsTopBarButton[]) {
+    this.options.leftButtons = buttons;
+    return this;
+  }
+
   withRightButton(button: OptionsTopBarButton) {
     if (!this.options.rightButtons) {
       this.options.rightButtons = [];

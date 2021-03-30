@@ -113,11 +113,17 @@ Should next update be animated
 #### `withTransparency(transparent: boolean)`
 Toggle top bar transparency where content is drawn behind
 
+#### `withLeftButton(button: OptionsTopBarButton)`
+Add a single left button (pushes to existing buttons)
+
+#### `withLeftButtons(buttons: OptionsTopBarButton[])`
+Set multiple left buttons
+
 #### `withRightButton(button: OptionsTopBarButton)`
 Add a single right button (pushes to existing buttons)
 
 #### `withRightButtons(buttons: OptionsTopBarButton[])`
-Add a multiple right button
+Set multiple right buttons
 
 #### `setRightButton(buttonIndex: number, options: OptionsTopBarButton)`
 Update a specific right button

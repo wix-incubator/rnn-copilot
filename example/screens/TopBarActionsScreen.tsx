@@ -27,6 +27,7 @@ class TopBarActionsScreen extends Component<Screen> {
     transparent: false,
     withBorder: false,
     withRightButton: false,
+    withLeftButton: false,
     rightButtonLabel: 'Button',
     disabledRightButton: false,
     iconRightButton: false,
@@ -49,6 +50,7 @@ class TopBarActionsScreen extends Component<Screen> {
       transparent,
       withBorder,
       withRightButton,
+      withLeftButton,
       rightButtonLabel,
       disabledRightButton,
       iconRightButton,
@@ -63,12 +65,14 @@ class TopBarActionsScreen extends Component<Screen> {
       .withAnimation(animate)
       .withBorder(withBorder)
       .withRightButtons([])
+      .withLeftButtons([])
       .withTransparency(transparent);
 
     withRightButton &&
       this.staticOptions.topBar.withRightButtons([
         {id: 'button', text: rightButtonLabel, enabled: !disabledRightButton, icon: iconRightButton ? Assets.icons.account : undefined},
       ]);
+    withLeftButton && this.staticOptions.topBar.withLeftButton({id: 'leftButton', icon: Assets.icons.account});
     withLoader && this.staticOptions.topBar.withLoader('rnncopilot.Loader');
   };
 
@@ -115,6 +119,7 @@ class TopBarActionsScreen extends Component<Screen> {
       withRightButton,
       rightButtonLabel,
       withLoader,
+      withLeftButton,
       /* StatusBar */
       hideStatusBar,
       useDarkTheme,
@@ -151,7 +156,7 @@ class TopBarActionsScreen extends Component<Screen> {
               />
               <Checkbox
                 containerStyle={{marginTop: Spacings.s3}}
-                label="Set Border"
+                label="With Border"
                 value={withBorder}
                 onValueChange={(value) => this.setState({withBorder: value})}
               />
@@ -179,7 +184,8 @@ class TopBarActionsScreen extends Component<Screen> {
                   />
                 </View>
               </ExpandableSection>
-              <Checkbox value={withLoader} label="With Loader" onValueChange={(value) => this.setState({withLoader: value})} />
+              <Checkbox value={withLoader} label="With Loader" onValueChange={(value) => this.setState({withLoader: value})} marginB-s3 />
+              <Checkbox value={withLeftButton} label="With Left Button" onValueChange={(value) => this.setState({withLeftButton: value})} />
 
               <View row centerV marginB-s3 marginT-s5>
                 <Text text40>StatusBar</Text>
