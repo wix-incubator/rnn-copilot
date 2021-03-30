@@ -47,8 +47,8 @@ class PushActionsScreen extends Component<Screen> {
         </Text>
         <View flex>
           <View row center>
-            <Button label="Screen" marginR-s5 onPress={this.pushScreen} />
-            <Button label="Modal" onPress={this.pushModal} />
+            <Button label="Push" marginR-s5 onPress={this.pushScreen} />
+            <Button label="ShowModal" onPress={this.pushModal} />
           </View>
           <ExpandableSection
             onPress={() => this.setState({withTopBar: !withTopBar})}
