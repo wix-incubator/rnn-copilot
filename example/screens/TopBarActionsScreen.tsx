@@ -98,7 +98,6 @@ class TopBarActionsScreen extends Component<Screen> {
           initialColor={Colors.grey10}
           value={value}
           colors={colors}
-          // @ts-expect-error
           onValueChange={onChange}
           onSubmit={(color) => this.setState({colors: [...colors, color]})}
         />
