@@ -1,6 +1,6 @@
 # rnn-copilot
 
-An abstraction on top react-native-navigation with simplified API
+An abstraction on top react-native-navigation with simplified, opinionated API
 
 ## API
 
