@@ -16,6 +16,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* rnnsimpleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* rnnsimpleTests.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8EFF25B12744DA110085AE0F /* void.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFF25B02744DA110085AE0F /* void.swift */; };
 		925200074A52B38C91AAA1F3 /* libPods-rnnsimple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8306EDA40767BDC52C2BD8AE /* libPods-rnnsimple.a */; };
 		B5D95D54893730D0AA898321 /* libPods-rnnsimple-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9FAE428AD62385E3DFE0D1 /* libPods-rnnsimple-tvOS.a */; };
 		B7A3858FF5300E8572F46473 /* libPods-rnnsimple-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD07C6896F5BDBBEE83F7A1F /* libPods-rnnsimple-tvOSTests.a */; };
@@ -61,6 +62,7 @@
 		74157CF44BC89FA443EFB876 /* Pods-rnnsimple-rnnsimpleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnnsimple-rnnsimpleTests.debug.xcconfig"; path = "Target Support Files/Pods-rnnsimple-rnnsimpleTests/Pods-rnnsimple-rnnsimpleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rnnsimple/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8306EDA40767BDC52C2BD8AE /* libPods-rnnsimple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnnsimple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EFF25B02744DA110085AE0F /* void.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = void.swift; sourceTree = "<group>"; };
 		934D0F395B512333B1B20337 /* Pods-rnnsimple-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnnsimple-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-rnnsimple-tvOSTests/Pods-rnnsimple-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C66A50E3E9B2036E7E112214 /* Pods-rnnsimple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnnsimple.release.xcconfig"; path = "Target Support Files/Pods-rnnsimple/Pods-rnnsimple.release.xcconfig"; sourceTree = "<group>"; };
 		CD07C6896F5BDBBEE83F7A1F /* libPods-rnnsimple-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnnsimple-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				8EFF25B02744DA110085AE0F /* void.swift */,
 			);
 			name = rnnsimple;
 			sourceTree = "<group>";
@@ -194,7 +197,6 @@
 				35E50E1A343A2BEC559E4B11 /* Pods-rnnsimple-tvOSTests.debug.xcconfig */,
 				934D0F395B512333B1B20337 /* Pods-rnnsimple-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -294,7 +296,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1300;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -570,6 +572,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				8EFF25B12744DA110085AE0F /* void.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74157CF44BC89FA443EFB876 /* Pods-rnnsimple-rnnsimpleTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -633,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22A0EA91967E39CA1B3509B1 /* Pods-rnnsimple-rnnsimpleTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = rnnsimpleTests/Info.plist;
