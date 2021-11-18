@@ -10,6 +10,7 @@ import {
   Colors,
   ExpandableSection,
   ColorPicker,
+  ColorPickerProps,
   Assets,
   Switch,
 } from 'react-native-ui-lib';
@@ -87,7 +88,7 @@ class TopBarActionsScreen extends Component<Screen> {
     this.staticOptions.update();
   };
 
-  renderColorPicker(title: string, value: string | undefined, onChange: Function) {
+  renderColorPicker(title: string, value: string | undefined, onChange: ColorPickerProps['onValueChange']) {
     const {colors} = this.state;
     return (
       <View marginB-s3>
