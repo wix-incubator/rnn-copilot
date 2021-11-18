@@ -6,3 +6,4 @@ export function push(screenName?: string, componentId?: string) {
 
 export * from './components';
 export {default as NavigationState} from './NavigationState';
+export {default as NavigationCommandObserver} from './NavigationCommandObserver';
