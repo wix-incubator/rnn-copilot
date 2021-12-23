@@ -50,7 +50,7 @@ Set options as default app style
 A singleton that handles Root actions
 
 ```
-import {Root} from 'rnn-simple';
+import {Root} from 'rnn-copilot';
 
 Root.withBottomTab(...).withBottomTab(..).set();
 // Or
@@ -84,7 +84,7 @@ Manually change selected tab
 ### TopBar
 
 ```
-import {TopBar} from 'rnn-simple';
+import {TopBar} from 'rnn-copilot';
 
 new TopBar().
   .withTitle('title', {color: 'red'})
@@ -130,7 +130,7 @@ Update a specific right button
 
 ### StatusBar 
 ```
-import {StatusBar} from 'rnn-simple';
+import {StatusBar} from 'rnn-copilot';
 
 new StatusBar(componentId).withBackground('red')
 ```
@@ -152,7 +152,7 @@ Set status bar style with dark/light scheme
 
 ### StaticOptions
 ```
-import {StaticOptions} from 'rnn-simple';
+import {StaticOptions} from 'rnn-copilot';
 
 class MyScreen extends React.Component {
   static options() {
@@ -178,7 +178,7 @@ Returns the static options object
 ### BottomTab
 
 ```
-import {BottomTab} from 'rnn-simple';
+import {BottomTab} from 'rnn-copilot';
 
 new BottomTab(tabId, screenId).withLabel(tabLabel)
 ```
