@@ -26,7 +26,7 @@ class NavigationCommandObserver {
 
     setTimeout(() => {
       this.removeCommand(id);
-    }, 150);
+    }, 0);
   };
 
   private removeCommand = (id: string) => {
