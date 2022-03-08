@@ -190,6 +190,27 @@ Set tab label
 Retrieve (RNN) layout object
 
 
+### Events
+
+```
+import {Events} from 'rnn-copilot';
+
+class MyScreen extends React.Component<ScreenProps> {
+  events = new Events(this.props.componentId).withBindAllEvents(this);
+  // Or
+    events = new Events(this.props.componentId).withEvents({
+      componentDidAppear: callback1,
+      navigationButtonPressed: callback2,
+    });
+}
+```
+
+#### `withBindAllEvents(component: Component, componentId?: string)`
+Bind all navigation events with the given component
+
+#### `withEvents(eventsListener: EventsListener)`
+Bind specific navigation events with the given events listener
+
 
 ## Roadmap
 
