@@ -12,6 +12,7 @@ An abstraction on top react-native-navigation with simplified, opinionated API
 - [StatusBar](#statusbar)
 - [StaticOptions](#staticoptions)
 - [BottomTab](#bottomtab)
+- [Events](#events)
 
 ### App
 A singleton that handles App actions
@@ -198,10 +199,10 @@ import {Events} from 'rnn-copilot';
 class MyScreen extends React.Component<ScreenProps> {
   events = new Events(this.props.componentId).withBindAllEvents(this);
   // Or
-    events = new Events(this.props.componentId).withEvents({
-      componentDidAppear: callback1,
-      navigationButtonPressed: callback2,
-    });
+  events = new Events(this.props.componentId).withEvents({
+    componentDidAppear: callback1,
+    navigationButtonPressed: callback2,
+  });
 }
 ```
 
