@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
-git config --global user.email $GIT_EMAIL
-git config --global user.name $GIT_USER
+node setupGit.js
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 
 normalized_branch=$(echo $BUILDKITE_BRANCH | sed 's/[^a-zA-Z0-9-]/./g')
@@ -14,4 +13,4 @@ else
     npm publish --tag $normalized_branch
 fi
 
-git add -u && git commit -m"CI version bump" && git push origin HEAD:$BUILDKITE_BRANCH
+git add -u && git commit -m"CI version bump" && git push origin $BUILDKITE_BRANCH
