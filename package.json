@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "jest",
+    "build": "tsc",
     "release": "./scripts/release.sh"
   },
   "dependencies": {

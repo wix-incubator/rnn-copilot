@@ -12,4 +12,4 @@ else
     npm version prerelease --preid $normalized_branch
 fi
 
-tsc && npm publish && git push
+npm publish && git push
