@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-node setupGit.js
+node scripts/setupGit.js
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 
 normalized_branch=$(echo $BUILDKITE_BRANCH | sed 's/[^a-zA-Z0-9-]/./g')
