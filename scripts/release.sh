@@ -14,4 +14,4 @@ else
     npm publish --tag $normalized_branch
 fi
 
-git add -u && git commit -m"CI version bump" && git push
+git add -u && git commit -m"CI version bump" && git push origin HEAD:$BUILDKITE_BRANCH

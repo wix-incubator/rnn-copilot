@@ -1,6 +1,6 @@
 {
   "name": "rnn-copilot",
-  "version": "0.0.28-release-script.0",
+  "version": "0.0.28-release-script.1",
   "homepage": "https://github.com/wix-incubator/rnn-copilot",
   "main": "src/index",
   "types": "src/index.d.ts",
