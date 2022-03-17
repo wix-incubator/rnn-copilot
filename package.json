@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "jest",
-    "release": "npm version patch && tsc && npm publish && git clean -f && git push"
+    "release": "./scripts/release.sh"
   },
   "dependencies": {
     "lodash": "4.17.15"
