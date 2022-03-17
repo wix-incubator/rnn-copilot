@@ -8,9 +8,10 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
     "lint": "eslint .",
-    "release": "npm version patch && tsc && npm publish && git clean -f"
+    "pretest": "npm run lint",
+    "test": "jest",
+    "release": "npm version patch && tsc && npm publish"
   },
   "dependencies": {
     "lodash": "4.17.15"

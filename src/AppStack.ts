@@ -10,7 +10,8 @@ Navigation.events().registerComponentDidAppearListener(({componentId /* , compon
   // appStack.push(componentId);
 });
 
-Navigation.events().registerBottomTabSelectedListener(({selectedTabIndex/* , unselectedTabIndex */}) => {
+Navigation.events().registerBottomTabSelectedListener(({selectedTabIndex /* , unselectedTabIndex */}) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   currentTab = selectedTabIndex;
 });
 

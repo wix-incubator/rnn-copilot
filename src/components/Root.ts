@@ -1,4 +1,4 @@
-import {isArray, isEmpty, isString, map, isUndefined} from 'lodash';
+import {isArray, isEmpty, isString, map} from 'lodash';
 import {Navigation, Layout, Options} from 'react-native-navigation';
 import BottomTab from './BottomTab';
 
