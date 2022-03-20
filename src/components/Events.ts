@@ -1,20 +1,22 @@
 import {Component} from 'react';
-import {Navigation, NavigationComponentListener} from 'react-native-navigation';
+import {EventSubscription, Navigation, NavigationComponentListener} from 'react-native-navigation';
 
 export type EventsListener = NavigationComponentListener;
 
 export default class Events {
   originComponentId: string;
+  eventSubscription: EventSubscription | null;
 
   constructor(componentId: string) {
     this.originComponentId = componentId;
+    this.eventSubscription = null;
   }
   withBindAllEvents(component: Component, componentId?: string) {
-    Navigation.events().bindComponent(component, componentId);
+    this.eventSubscription = Navigation.events().bindComponent(component, componentId);
     return this;
   }
   withEvents(eventsListener: EventsListener) {
-    Navigation.events().registerComponentListener(eventsListener, this.originComponentId);
+    this.eventSubscription = Navigation.events().registerComponentListener(eventsListener, this.originComponentId);
     return this;
   }
 }
