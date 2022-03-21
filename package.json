@@ -12,7 +12,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "build": "tsc",
-    "release": "./scripts/release.sh"
+    "release": "bash scripts/release.sh"
   },
   "dependencies": {
     "lodash": "4.17.15"
