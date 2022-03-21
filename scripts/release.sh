@@ -5,7 +5,7 @@ remoteUrl=$(git remote get-url origin | sed 's/https:\/\///')
 git config --global push.default simple
 git config --global user.email $GIT_EMAIL
 git config --global user.name $GIT_USERNAME
-git remote add deploy "https://$GIT_USERNAME:$GIT_TOKEN@${remoteUrl}"
+git remote add deploy "https://$GIT_USERNAME:$GIT_TOKEN@$remoteUrl"
 git checkout $BUILDKITE_BRANCH
 
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
@@ -21,5 +21,5 @@ else
 fi
 
 # git add -u && git commit -m"CI version bump" && 
-git push deploy $BUILDKITE_BRANCH --tags
+git push deploy --tags
 git remote remove deploy
