@@ -21,5 +21,5 @@ else
 fi
 
 # git add -u && git commit -m"CI version bump" && 
-git push deploy $BUILDKITE_BRANCH
+git push deploy $BUILDKITE_BRANCH --tags
 git remote remove deploy
