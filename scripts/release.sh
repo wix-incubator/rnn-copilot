@@ -1,6 +1,13 @@
 #!/bin/bash -e
 
-node scripts/setupGit.js
+echo "Configuring git..."
+remoteUrl=$(git remote get-url origin | sed 's/https:\/\///')
+git config --global push.default simple
+git config --global user.email $GIT_EMAIL
+git config --global user.name $GIT_USERNAME
+git remote add deploy "https://$GIT_USERNAME:$GIT_TOKEN@${remoteUrl}"
+
+
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 
 normalized_branch=$(echo $BUILDKITE_BRANCH | sed 's/[^a-zA-Z0-9-]/./g')
@@ -13,4 +20,4 @@ else
     npm publish --tag $normalized_branch
 fi
 
-git add -u && git commit -m"CI version bump" && git push origin $BUILDKITE_BRANCH
+git add -u && git commit -m"CI version bump" && git push deploy $BUILDKITE_BRANCH
