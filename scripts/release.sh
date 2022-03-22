@@ -12,8 +12,9 @@ echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 normalized_branch=$(echo $BUILDKITE_BRANCH | sed 's/[^a-zA-Z0-9-]/./g')
 
 if [ "$BUILDKITE_BRANCH" == "master" ];then
-    npm version patch
+    npm version --no-git-tag-version patch
     npm publish
+    git add package.json && git commit -m"$(npm view . version) [ci skip]" && git push deploy
     git push deploy
 else
     npm version prerelease --preid $normalized_branch.$BUILDKITE_BUILD_NUMBER
