@@ -18,7 +18,6 @@ if [ "$BUILDKITE_BRANCH" == "master" ];then
 else
     npm version prerelease --preid $normalized_branch.$BUILDKITE_BUILD_NUMBER
     npm publish --tag $normalized_branch
-    
 fi
 
 git remote remove deploy
