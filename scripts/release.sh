@@ -18,10 +18,10 @@ if [ "$BUILDKITE_BRANCH" == "master" ];then
     
 else
     npm version prerelease --no-git-tag-version --preid $normalized_branch.$BUILDKITE_BUILD_NUMBER
-    npm publish --tag $normalized_branch
-    git add package.json && git commit -m'release bump' && git push deploy $BUILDKITE_BRANCH
+    # npm publish --tag $normalized_branch
+    # git add package.json && git commit -m'release bump' && git push deploy $BUILDKITE_BRANCH
 fi
 
 # git add -u && git commit -m"CI version bump" && 
 
-git remote remove deploy
+# git remote remove deploy
