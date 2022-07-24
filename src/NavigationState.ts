@@ -1,7 +1,13 @@
-import {Navigation, CommandName, ModalDismissedEvent} from 'react-native-navigation';
+import {Navigation, CommandName, ModalDismissedEvent, ComponentDidAppearEvent} from 'react-native-navigation';
 
-const state = {
+interface State {
+  stackCounter: number;
+  activeScreenId?: string;
+}
+
+const state: State = {
   stackCounter: 0,
+  activeScreenId: undefined,
 };
 
 Navigation.events().registerModalDismissedListener((event: ModalDismissedEvent) => {
@@ -37,6 +43,12 @@ Navigation.events().registerCommandListener((name) => {
   // don't allow going under zero in any way
   stackCounter = Math.max(0, stackCounter);
   state.stackCounter = stackCounter;
+});
+
+Navigation.events().registerComponentDidAppearListener((event: ComponentDidAppearEvent) => {
+  if (event.componentType === 'Component') {
+    state.activeScreenId = event.componentId;
+  }
 });
 
 export default state;
