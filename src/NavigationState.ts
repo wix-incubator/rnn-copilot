@@ -1,13 +1,15 @@
 import {Navigation, CommandName, ModalDismissedEvent, ComponentDidAppearEvent} from 'react-native-navigation';
 
+let activeScreenId: string;
+
 interface State {
   stackCounter: number;
-  activeScreenId?: string;
+  isActiveScreenId: (screenId: string) => boolean;
 }
 
 const state: State = {
   stackCounter: 0,
-  activeScreenId: undefined,
+  isActiveScreenId: (screenId: string) => screenId === activeScreenId,
 };
 
 Navigation.events().registerModalDismissedListener((event: ModalDismissedEvent) => {
@@ -47,7 +49,7 @@ Navigation.events().registerCommandListener((name) => {
 
 Navigation.events().registerComponentDidAppearListener((event: ComponentDidAppearEvent) => {
   if (event.componentType === 'Component') {
-    state.activeScreenId = event.componentId;
+    activeScreenId = event.componentId;
   }
 });
 
