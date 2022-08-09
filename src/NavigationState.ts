@@ -1,6 +1,7 @@
 import {Navigation, CommandName, ModalDismissedEvent, ComponentDidAppearEvent} from 'react-native-navigation';
 
 let activeScreenId: string | undefined;
+let overlayWasShown = false;
 
 interface State {
   stackCounter: number;
@@ -51,8 +52,18 @@ Navigation.events().registerCommandListener((name) => {
 
 Navigation.events().registerComponentDidAppearListener((event: ComponentDidAppearEvent) => {
   if (event.componentType === 'Component') {
-    activeScreenId = event.componentId;
-    state.activeScreenId = event.componentId;
+    if (overlayWasShown) {
+      overlayWasShown = false;
+    } else {
+      activeScreenId = event.componentId;
+      state.activeScreenId = event.componentId;
+    }
+  }
+});
+
+Navigation.events().registerCommandListener((name, params) => {
+  if (params.commandId && name === CommandName.ShowOverlay) {
+    overlayWasShown = true;
   }
 });
 
