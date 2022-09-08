@@ -126,8 +126,8 @@ class TopBarActionsScreen extends Component<Screen> {
     } = this.state;
 
     return (
-      <View flex useSafeArea>
-        <ScrollView>
+      <View flex>
+        <ScrollView contentInsetAdjustmentBehavior={'never'}>
           <View padding-s5 flex>
             <View row centerV marginB-s3>
               <Text text40>TopBar</Text>
