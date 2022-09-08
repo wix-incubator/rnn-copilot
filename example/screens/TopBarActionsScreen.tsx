@@ -134,8 +134,13 @@ class TopBarActionsScreen extends Component<Screen> {
             </View>
             <View flex>
               {this.renderColorPicker('Background Color', backgroundColor, (value: string) => this.setState({backgroundColor: value}))}
-              <TextField title="Title" placeholder="Enter title" onChangeText={(title: string) => this.setState({title})} />
-              <TextField title="Subtitle" placeholder="Enter subtitle" onChangeText={(subtitle: string) => this.setState({subtitle})} />
+              <TextField migrate label="Title" placeholder="Enter title" onChangeText={(title: string) => this.setState({title})} />
+              <TextField
+                migrate
+                label="Subtitle"
+                placeholder="Enter subtitle"
+                onChangeText={(subtitle: string) => this.setState({subtitle})}
+              />
 
               {this.renderColorPicker('Title/Subtitle Color', textColor, (value: string) => this.setState({textColor: value}))}
 

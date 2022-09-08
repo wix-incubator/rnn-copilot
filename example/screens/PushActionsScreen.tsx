@@ -61,14 +61,16 @@ class PushActionsScreen extends Component<Screen> {
             <View padding-s5 style={{borderWidth: 1, borderColor: Colors.grey50}}>
               <View row>
                 <TextField
+                  migrate
                   containerStyle={{flex: 1, marginRight: Spacings.s2}}
-                  title="Tile"
+                  label="Tile"
                   placeholder="Enter title"
                   onChangeText={(topBarTitle: string) => this.setState({topBarTitle})}
                 />
                 <TextField
+                  migrate
                   containerStyle={{flex: 1}}
-                  title="Subtitle"
+                  label="Subtitle"
                   placeholder="Enter subtitle"
                   onChangeText={(topBarSubtitle: string) => this.setState({topBarSubtitle})}
                 />
