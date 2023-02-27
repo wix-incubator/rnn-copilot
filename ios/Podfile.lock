@@ -352,18 +352,18 @@ PODS:
     - React-jsi (= 0.68.3)
     - React-logger (= 0.68.3)
     - React-perflogger (= 0.68.3)
-  - ReactNativeNavigation (7.29.0):
+  - ReactNativeNavigation (7.32.1):
     - HMSegmentedControl
     - React-Core
     - React-RCTImage
     - React-RCTText
-    - ReactNativeNavigation/Core (= 7.29.0)
-  - ReactNativeNavigation/Core (7.29.0):
+    - ReactNativeNavigation/Core (= 7.32.1)
+  - ReactNativeNavigation/Core (7.32.1):
     - HMSegmentedControl
     - React-Core
     - React-RCTImage
     - React-RCTText
-  - ReactNativeUiLib (3.0.9):
+  - ReactNativeUiLib (4.0.0):
     - React
   - RNCPicker (1.8.1):
     - React-Core
@@ -461,7 +461,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
-  - ReactNativeUiLib (from `../node_modules/react-native-ui-lib/lib`)
+  - ReactNativeUiLib (from `../node_modules/react-native-ui-lib`)
   - "RNCPicker (from `../node_modules/@react-native-community/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -555,7 +555,7 @@ EXTERNAL SOURCES:
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
   ReactNativeUiLib:
-    :path: "../node_modules/react-native-ui-lib/lib"
+    :path: "../node_modules/react-native-ui-lib"
   RNCPicker:
     :path: "../node_modules/@react-native-community/picker"
   RNDateTimePicker:
@@ -614,8 +614,8 @@ SPEC CHECKSUMS:
   React-RCTVibration: f41f116aad644973f24653effb3db3de64fa0314
   React-runtimeexecutor: 8cdd80915ed6dabf2221a689f1f7ddb50ea5e9f3
   ReactCommon: 5b1b43a7d81a1ac4eec85f7c4db3283a14a3b13d
-  ReactNativeNavigation: 3b09d0b7a64326dbcea7e64231287c766b18adf0
-  ReactNativeUiLib: 2601bf164b2d621da11fff43198e5b36b8db0211
+  ReactNativeNavigation: d79d9d53e6025851936bb8b3d13760b86302a669
+  ReactNativeUiLib: 511a5eb03809a0b27f6aefa2b4d6f7c2d6ae4053
   RNCPicker: 914b557e20b3b8317b084aca9ff4b4edb95f61e4
   RNDateTimePicker: c9911be59b1f8670b9f244b85af3a7c295e175ed
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
