@@ -7,6 +7,7 @@ const MISSING_COMPONENT_ID_MESSAGE =
 
 export default class StaticOptions {
   originComponentId?: string;
+  options: Options = {};
   topBar: TopBar = new TopBar();
   statusBar: StatusBar = new StatusBar();
 
@@ -29,6 +30,10 @@ export default class StaticOptions {
     return this;
   }
 
+  withOptions(options: Options) {
+    this.options = {...this.options, ...options};
+  }
+
   get() {
     const options: Options = {};
 
@@ -40,7 +45,7 @@ export default class StaticOptions {
       options.statusBar = this.statusBar.get();
     }
 
-    return options;
+    return {...options, ...this.options};
   }
 
   update() {
