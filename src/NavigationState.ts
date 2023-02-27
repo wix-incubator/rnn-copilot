@@ -6,6 +6,7 @@ let overlayWasShown = false;
 interface State {
   stackCounter: number;
   activeScreenId?: string;
+  activeComponentName?: string;
   isActiveScreenId: (screenId: string) => boolean;
 }
 
@@ -13,6 +14,7 @@ const state: State = {
   stackCounter: 0,
   activeScreenId: undefined,
   isActiveScreenId: (screenId: string) => screenId === activeScreenId,
+  activeComponentName: undefined,
 };
 
 Navigation.events().registerModalDismissedListener((event: ModalDismissedEvent) => {
@@ -57,6 +59,7 @@ Navigation.events().registerComponentDidAppearListener((event: ComponentDidAppea
     } else {
       activeScreenId = event.componentId;
       state.activeScreenId = event.componentId;
+      state.activeComponentName = event.componentName;
     }
   }
 });
