@@ -175,7 +175,7 @@ class TopBarActionsScreen extends Component<Screen> {
                   </View>
                 }>
                 <View padding-s5 marginB-s3 style={{borderWidth: 1, borderColor: Colors.grey50}}>
-                  <TextField title="Button Label" placeholder="Enter right button label" value={rightButtonLabel} />
+                  <TextField label="Button Label" placeholder="Enter right button label" value={rightButtonLabel} />
                   <Checkbox
                     label="Disabled"
                     value={disabledRightButton}
