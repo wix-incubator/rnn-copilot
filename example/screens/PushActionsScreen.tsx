@@ -82,6 +82,7 @@ class PushActionsScreen extends Component<Screen> {
           <Text text60>General Info</Text>
           <Text text70>Stack Level: {NavigationState.stackCounter}</Text>
           <Text text70>Current Screen ID: {NavigationState.activeScreenId}</Text>
+          <Text text70>Current Screen Name: {NavigationState.activeComponentName}</Text>
         </View>
         <View useSafeArea center row>
           <Button marginL-s4 label="Dismiss All Modals" onPress={this.dismissAll} />
