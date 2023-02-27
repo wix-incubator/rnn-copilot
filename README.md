@@ -65,7 +65,7 @@ Set a single stack layout with a main screen or with a stack of screens
 Add a single bottom tab to root layout
 
 #### `withProps(passProps?: object | object[])`
-Pass props to the main screen  
+Pass props to the main screen
 Pass an array of props in case you want to pass to a stack of screens
 
 #### `withOptions(options?: Options | Options[])`
@@ -129,7 +129,7 @@ Set multiple right buttons
 #### `setRightButton(buttonIndex: number, options: OptionsTopBarButton)`
 Update a specific right button
 
-### StatusBar 
+### StatusBar
 ```
 import {StatusBar} from 'rnn-copilot';
 
@@ -171,6 +171,9 @@ Set a topBar using the TopBar class
 
 #### `withStatusBar(statusBar: StatusBar)`
 Set a statusBar using the StatusBar class
+
+#### `withOptions(options: Options)`
+Set custom set of StaticOptions options
 
 #### `get()`
 Returns the static options object
@@ -215,7 +218,7 @@ Bind specific navigation events with the given events listener
 
 ## Roadmap
 
-- Setup a build in CI 
+- Setup a build in CI
 - Create a StaticOptions component that combines all options
 - Support showing loader as right button (there's an issue)
 - Support easier ways to set app default styles for common behaviors

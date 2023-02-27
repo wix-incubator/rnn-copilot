@@ -32,6 +32,7 @@ export default class StaticOptions {
 
   withOptions(options: Options) {
     this.options = {...this.options, ...options};
+    return this;
   }
 
   get() {
