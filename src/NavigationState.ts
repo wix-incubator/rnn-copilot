@@ -1,4 +1,4 @@
-import { Navigation, CommandName, ModalDismissedEvent, ComponentDidAppearEvent } from 'react-native-navigation';
+import {Navigation, CommandName, ModalDismissedEvent, ComponentDidAppearEvent} from 'react-native-navigation';
 
 let activeScreenId: string | undefined;
 let overlayWasShown = false;
