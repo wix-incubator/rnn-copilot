@@ -19,7 +19,7 @@ const state: State = {
   activeComponentName: undefined,
 };
 
-Navigation.events().registerBottomTabSelectedListener(({ selectedTabIndex }) => {
+Navigation.events().registerBottomTabSelectedListener(({selectedTabIndex}) => {
   state.activeTabIndex = selectedTabIndex;
 });
 
