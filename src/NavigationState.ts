@@ -78,7 +78,7 @@ Navigation.events().registerCommandListener((name, params) => {
   }
 
   if (name === CommandName.SetRoot) {
-    const initialTabIndex = params?.layout?.root?.data?.bottomTabs?.currentTabIndex ?? 0;
+    const initialTabIndex = params?.layout?.root?.data?.options?.bottomTabs?.currentTabIndex ?? 0;
     state.initialTabIndex = initialTabIndex;
     state.activeTabIndex = initialTabIndex;
   }
