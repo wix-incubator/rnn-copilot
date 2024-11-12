@@ -8,7 +8,6 @@ interface State {
   activeScreenId?: string;
   activeComponentName?: string;
   activeTabIndex: number;
-  initialTabIndex: number;
   isActiveScreenId: (screenId: string) => boolean;
 }
 
@@ -16,7 +15,6 @@ const state: State = {
   stackCounter: 0,
   activeScreenId: undefined,
   activeTabIndex: 0,
-  initialTabIndex: 0,
   isActiveScreenId: (screenId: string) => screenId === activeScreenId,
   activeComponentName: undefined,
 };
@@ -79,7 +77,6 @@ Navigation.events().registerCommandListener((name, params) => {
 
   if (name === CommandName.SetRoot) {
     const initialTabIndex = params?.layout?.root?.data?.options?.bottomTabs?.currentTabIndex ?? 0;
-    state.initialTabIndex = initialTabIndex;
     state.activeTabIndex = initialTabIndex;
   }
 });
