@@ -74,6 +74,11 @@ Navigation.events().registerCommandListener((name, params) => {
   if (params.commandId && name === CommandName.ShowOverlay) {
     overlayWasShown = true;
   }
+
+  if (name === CommandName.SetRoot) {
+    const initialTabIndex = params?.layout?.root?.data?.options?.bottomTabs?.currentTabIndex ?? 0;
+    state.activeTabIndex = initialTabIndex;
+  }
 });
 
 export default state;
