@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface rnnsimpleTests : XCTestCase
+@interface rnncopilotTests : XCTestCase
 
 @end
 
-@implementation rnnsimpleTests
+@implementation rnncopilotTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
@@ -62,6 +62,5 @@
   XCTAssertNil(redboxError, @"RedBox error: %@", redboxError);
   XCTAssertTrue(foundElement, @"Couldn't find element with text '%@' in %d seconds", TEXT_TO_LOOK_FOR, TIMEOUT_SECONDS);
 }
-
 
 @end
