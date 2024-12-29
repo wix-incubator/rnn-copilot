@@ -27,7 +27,7 @@
     "@react-native/typescript-config": "0.73.1",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
-    "@react-native-community/blur": "^3.6.0",
+    "@react-native-community/blur": "4.3.0",
     "@react-native-community/datetimepicker": "^3.0.6",
     "@react-native-community/eslint-config": "^2.0.0",
     "@react-native-community/netinfo": "^5.9.7",
