@@ -1,11 +1,12 @@
 import {isArray, isEmpty, isString, map} from 'lodash';
-import {Navigation, Layout, Options} from 'react-native-navigation';
+import {Navigation, Layout, Options, LayoutSideMenu, LayoutRoot} from 'react-native-navigation';
 import BottomTab from './BottomTab';
 
 class Root {
   private mainScreen?: string | string[];
   private bottomTabsId: string = 'bottom-tabs';
   private bottomTabs: BottomTab[] = [];
+  private sideMenu?: string;
   private passProps?: object | object[];
   private options?: Options | Options[];
 
@@ -18,6 +19,13 @@ class Root {
   /** Add a bottom tab to Tabbed based root */
   withBottomTab(bottomTab: BottomTab) {
     this.bottomTabs.push(bottomTab);
+    return this;
+  }
+
+  // TODO: Currently will represent left side menu but it's possible to set right as well
+  // In the future we can add position argument for this method
+  withSideMenu(sideMenu: string) {
+    this.sideMenu = sideMenu;
     return this;
   }
 
@@ -48,8 +56,11 @@ class Root {
 
   /** Set root according to configurations */
   set() {
+    const rootLayout: LayoutRoot = {root: {}};
     const layout: Layout = {};
-    if (this.mainScreen) {
+    let sideMenuLayout: LayoutSideMenu;
+
+     if (this.mainScreen) {
       const screens = isArray(this.mainScreen) ? this.mainScreen : [this.mainScreen];
       const allPassProps = isArray(this.passProps) ? this.passProps : [this.passProps];
       const allOptions = isArray(this.options) ? this.options : [this.options];
@@ -67,9 +78,16 @@ class Root {
     } else {
       throw "Cannot set app root without proper configuration. Use either 'withSingleStack' or 'withBottomTab'";
     }
-    Navigation.setRoot({
-      root: layout,
-    });
+
+    if (this.sideMenu) {
+      sideMenuLayout = {center: layout};
+      sideMenuLayout.left = {component: {name: this.sideMenu}};
+      rootLayout.root.sideMenu = sideMenuLayout;
+    } else {
+      rootLayout.root = layout;
+    }
+
+    Navigation.setRoot(rootLayout);
   }
 
   /**
