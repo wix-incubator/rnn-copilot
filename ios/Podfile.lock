@@ -945,8 +945,8 @@ PODS:
   - React-Mapbuffer (0.73.9):
     - glog
     - React-debug
-  - react-native-blur (0.8.0):
-    - React
+  - react-native-blur (4.3.0):
+    - React-Core
   - react-native-netinfo (5.9.10):
     - React-Core
   - React-nativeconfig (0.73.9)
@@ -1398,7 +1398,7 @@ SPEC CHECKSUMS:
   React-jsinspector: aee04d04ef553d5e30e52a4de2af958cb060069f
   React-logger: 87a4232dd55485435edfa6803ff0de0b5c9eea1a
   React-Mapbuffer: 6c229dc8f1640457d1f665f0b7d79ab8f604dc8b
-  react-native-blur: cad4d93b364f91e7b7931b3fa935455487e5c33c
+  react-native-blur: 50c9feabacbc5f49b61337ebc32192c6be7ec3c3
   react-native-netinfo: 30fb89fa913c342be82a887b56e96be6d71201dd
   React-nativeconfig: c1729ab95240ec80d47a2bb8354d8f31138e35a7
   React-NativeModulesApple: 115c934a87f3b45fecb0fada08fa70bab3dff65c
