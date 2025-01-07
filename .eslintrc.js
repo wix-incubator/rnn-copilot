@@ -1,4 +1,4 @@
 module.exports = {
-  root: true,
-  extends: '@react-native-community',
+  extends: ['plugin:@typescript-eslint/recommended', 'wix/react-native', 'plugin:react-hooks/recommended'],
+  parser: '@typescript-eslint/parser',
 };

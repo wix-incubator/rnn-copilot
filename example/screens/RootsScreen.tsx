@@ -20,15 +20,20 @@ class RootsScreen extends Component {
     Root.clear().withSingleStack(appName).set();
   };
 
+  setRootWithSideMenu = () => {
+    Root.clear().withSideMenu('sideMenu').withSingleStack(appName).set()
+  }
+
   render() {
     return (
       <View flex padding-s5>
         <Text text40 marginB-s3>
           Roots
         </Text>
-        <View row flex center>
-          <Button marginR-s3 label="With Tabs" onPress={this.setRootWithTabs} />
+        <View center flex gap-s3>
+          <Button label="With Tabs" onPress={this.setRootWithTabs} />
           <Button label="Single Stack" onPress={this.setRootAsSingleStack} />
+          <Button label="Side Menu" onPress={this.setRootWithSideMenu} />
         </View>
       </View>
     );
